@@ -38,6 +38,14 @@ body {
   display: flex;
   flex-direction: column;
   background: #F7F7F7;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1350px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 15px;
 }
 
 * {
@@ -86,4 +94,12 @@ img {
 
 .btn-icon {
   gap: 6px;
+}
+
+.text-gradient-1 {
+  background: #FFFFFF;
+  background: linear-gradient(to top, #FFFFFF 0%, #202020 67%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }

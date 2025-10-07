@@ -1,0 +1,156 @@
+.footer {
+  margin-bottom: 60px;
+}
+
+.wrapper {
+  border-radius: 28px;
+  border: 1px solid #F1F1F5;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.content {
+  border: 1px solid #F1F1F5;
+  border-radius: 20px;
+  background: #fff;
+  padding: 50px 50px 24px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(110, 124, 138, .2);
+}
+
+.right {
+  display: flex;
+  gap: 60px;
+}
+
+.menuList {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+.menuItem {
+  line-height: 1.2;
+}
+
+.menuLink {
+  line-height: 1.2;
+  color: rgba(32, 32, 32, 0.6);
+}
+
+.menuTitle {
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: .9;
+}
+
+.logo {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.subscribeTitle {
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: .9; 
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyright {
+  line-height: 1.2;
+  color: rgba(32, 32, 32, 0.6);
+}
+
+.author {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #F7F7F7;
+  line-height: 1.2;
+  color: rgba(32, 32, 32, 0.6);
+}
+
+.menuMobile {
+  display: none;
+}
+
+
+@media (max-width: 1140px) {
+  .right {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 820px) {
+  .footer {
+    margin-bottom: 24px;
+  }
+  .head {
+    flex-direction: column;
+    margin-bottom: 14px;
+  }
+  .wrapper {
+    border-radius: 28px;
+  }
+  
+  .content {
+    border-radius: 20px;
+    padding: 24px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .logo {
+    margin-bottom: 40px;
+  }
+
+  .menuMobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px;
+    margin-bottom: 69px;
+
+    .menu {
+      display: block;
+    }
+  }
+
+  .menuTitle {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .subscribeTitle {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .foot {
+    flex-direction: column;
+    gap: 14px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+}
