@@ -1,0 +1,94 @@
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 12;
+    padding: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s ease;
+}
+
+.mobileMenu.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.wrapper {
+    border: 1px solid #F1F1F5;
+    padding: 8px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.3);
+    max-height: 100%;
+    overflow: auto;
+    max-width: 345px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.content {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    max-height: 100%;
+}
+
+.logo {
+    position: relative;
+    width: 105px;
+    height: 40px;
+    display: flex;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 72px;
+}
+
+.close {
+    display: flex;
+    background: transparent;
+    border: 0;
+}
+
+.nav {
+    margin-bottom: 60px;
+    display: grid;
+    gap: 32px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(32, 32, 32, .4);
+}
+
+.link svg {
+    width: 24px;
+    height: 24px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 8px;
+}
+
+.buttons a {
+    padding: 0;
+}
+
+.line {
+    margin: 60px 0 25px;
+    width: 100%;
+    height: 1px;
+    background: #6E7C8A;
+}

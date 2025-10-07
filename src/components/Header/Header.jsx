@@ -22,6 +22,7 @@ export default function Header() {
     ];
 
     const [user, setUser] = useState(null);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
         <>
@@ -68,7 +69,10 @@ export default function Header() {
                                 </div>
                             )}
 
-                            <button className={`btn btn-icon ${styles['menu-btn']}`}>
+                            <button
+                                onClick={() => setIsMobileMenuOpen(true)}
+                                className={`btn btn-icon ${styles['menu-btn']}`}
+                            >
                                 <MenuIcon />
                                 Меню
                             </button>
@@ -77,7 +81,11 @@ export default function Header() {
                     </div>
                 </div>
             </header>
-            <MobileMenu />
+            <MobileMenu
+                isOpen={isMobileMenuOpen}
+                menuItems={menuItems}
+                onClose={() => setIsMobileMenuOpen(false)}
+            />
         </>
     );
 }

@@ -1,0 +1,15 @@
+.socialLinks {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+}
+
+.socialLink {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(32, 32, 32,.08);
+}
