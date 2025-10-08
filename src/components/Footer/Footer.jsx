@@ -110,6 +110,8 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+            <img className={styles.bg} src="/images/footer-bg.png" alt=""/>
+
         </footer>
     );
 }

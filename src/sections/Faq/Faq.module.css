@@ -7,7 +7,7 @@
     &:before {
         content: '';
         position: absolute;
-        top: -28%;
+        top: -200px;
         left: 0;
         width: 100%;
         background: url('/images/faq-bg.png') right no-repeat;
