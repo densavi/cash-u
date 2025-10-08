@@ -6,6 +6,9 @@
     padding: 6px 8px;
     line-height: 1.4;
     font-weight: 400;
+    @media (max-width: 768px) {
+        margin-bottom: 24px;
+    }
     span {
         font-weight: 800;
     }

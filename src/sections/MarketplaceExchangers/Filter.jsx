@@ -54,7 +54,7 @@ export default function Filter() {
                 <div className={`${styles.wrapp} ${styles.mb16}`}>
                     <div className={`${styles.filterSelect}`}>
                         <label htmlFor="exchanger">Вношу</label>
-                        <input className={styles.input} type="number" id="exchanger" placeholder="Введіть сумму" />
+                        <input className={styles.input} type="number" id="exchanger" placeholder="Введіть суму" />
                     </div>
                     <div className={`${styles.filterSelect} ${styles.filterSelectSmall}`}>
                         <select
@@ -74,7 +74,7 @@ export default function Filter() {
                 <div className={`${styles.wrapp} ${styles.mb16}`}>
                     <div className={`${styles.filterSelect}`}>
                         <label htmlFor="receive">Отримую</label>
-                        <input className={styles.input} type="number" id="receive" placeholder="Введіть сумму" />
+                        <input className={styles.input} type="number" id="receive" placeholder="Введіть суму" />
                     </div>
                     <div className={`${styles.filterSelect} ${styles.filterSelectSmall}`}>
                         <select

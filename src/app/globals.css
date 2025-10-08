@@ -101,6 +101,10 @@ img {
   width: 100%;
 }
 
+.btn-p-0 {
+    padding: 0;
+}
+
 .text-gradient-1 {
   background: #FFFFFF;
   background: linear-gradient(to top, #FFFFFF 0%, #202020 67%);

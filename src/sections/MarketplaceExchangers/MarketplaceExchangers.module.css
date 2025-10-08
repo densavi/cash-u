@@ -3,6 +3,10 @@
     padding-top: 139px;
     position: relative;
 
+    @media (max-width: 768px) {
+        padding-top: 160px;
+    }
+
     &:before {
         content: '';
         position: absolute;
@@ -40,6 +44,10 @@
     font-size: 56px;
     letter-spacing: -.5px;
     line-height: .9;
+    @media (max-width: 768px) {
+        font-size: 38px;
+        margin-bottom: 24px;
+    }
 }
 
 .description {
@@ -49,11 +57,23 @@
     color: #202020;
     opacity: .6;
     margin-bottom: 32px;
+    @media (max-width: 768px) {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
 }
 
 .wrapper {
     display: grid;
     grid-template-columns: 314px 1fr;
     gap: 8px;
+    @media (max-width: 1160px) {
+        grid-template-columns: 270px 1fr;
+    }
+    @media (max-width: 1023px) {
+        grid-template-columns: 1fr;
+    }
+    @media (max-width: 768px) {
+        display: block;
+    }
 }
-

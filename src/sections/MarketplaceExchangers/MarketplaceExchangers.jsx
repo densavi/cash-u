@@ -14,6 +14,7 @@ export default function MarketplaceExchangers() {
             address: 'вул. Саксаганського, 87',
             rating: 2.2,
             votes: '52',
+            link: '#',
         },
         {
             logo: 'images/Obmenat24.svg',
@@ -22,14 +23,16 @@ export default function MarketplaceExchangers() {
             address: 'Галицька пл., 3',
             rating: 3.5,
             votes: '52',
+            link: '#',
         },
         {
             logo: 'images/menora.svg',
             name: 'Менора',
             rate: '41,65',
-            address: 'Берестейський проспект, 136ж выпыврры впвывып выпывп ывппыв ывп ывп ы ',
+            address: 'Берестейський проспект, 136',
             rating: 4.9,
             votes: '52',
+            link: '#',
         },
         {
             logo: 'images/21Vik.svg',
@@ -38,6 +41,7 @@ export default function MarketplaceExchangers() {
             address: 'вул. Євгена Чикаленка, 20',
             rating: 3.4,
             votes: '52',
+            link: '#',
         },
         {
             logo: 'images/X-change.svg',
@@ -46,6 +50,7 @@ export default function MarketplaceExchangers() {
             address: 'вул. Саксаганського, 87',
             rating: 2.5,
             votes: '52',
+            link: '#',
         },
         {
             logo: 'images/kitlogo.svg',
@@ -54,6 +59,7 @@ export default function MarketplaceExchangers() {
             address: 'вул. Саксаганського, 87',
             rating: 5.0,
             votes: '52',
+            link: '#',
         },
         {
             logo: 'images/kitlogo.svg',
@@ -62,6 +68,7 @@ export default function MarketplaceExchangers() {
             address: 'вул. Саксаганського, 87',
             rating: 4.5,
             votes: '52',
+            link: '#',
         },
     ]
 
@@ -73,6 +80,7 @@ export default function MarketplaceExchangers() {
             address: 'вул. Саксаганського, 87',
             rating: 4.5,
             votes: '52',
+            link: '#',
         },
         {
             logo: 'images/Obmenat24.svg',
@@ -81,6 +89,7 @@ export default function MarketplaceExchangers() {
             address: 'Галицька пл., 3',
             rating: 4.4,
             votes: '52',
+            link: '#',
         }
     ]
 
