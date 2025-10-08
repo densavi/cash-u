@@ -96,10 +96,20 @@ img {
   gap: 6px;
 }
 
+.btn-fullwidth {
+  width: 100%;
+}
+
 .text-gradient-1 {
   background: #FFFFFF;
   background: linear-gradient(to top, #FFFFFF 0%, #202020 67%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
 
+.text-gradient-2 {
+  background: #202020;
+  background: linear-gradient(to right, #202020 67%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

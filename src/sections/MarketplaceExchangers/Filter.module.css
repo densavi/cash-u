@@ -1,0 +1,99 @@
+.filter {
+    width: 314px;
+    border: 1px solid #F1F1F5;
+    padding: 8px;
+    border-radius: 28px;
+
+}
+
+.wrapper {
+    border: 1px solid #F1F1F5;
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 20px 20px;
+}
+
+.filterSelect {
+    position: relative;
+
+    select {
+        width: 100%;
+        height: 48px;
+        border-radius: 8px;
+        border: 1px solid #E6E6E6;
+        padding: 0 16px;
+        cursor: pointer;
+        outline: none;
+        color: rgba(32, 32, 32, 0.4);
+        appearance: none;
+        background: url('/images/CaretDown.svg') no-repeat right 16px center;
+        padding-right: 47px;
+        font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    select option {
+        color: rgba(32, 32, 32, 1);
+    }
+
+    select option:disabled {
+        color: rgba(32, 32, 32, 0.4);
+    }
+
+    .selected {
+        color: rgba(32, 32, 32, 1);
+    }
+
+    label {
+        position: absolute;
+        left: 10px;
+        top: 0;
+        padding: 0 6px;
+        background: #fff;
+        font-weight: 400;
+        transform: translateY(-50%);
+        line-height: 1.2;
+        color: #202020;
+        pointer-events: none;
+    }
+}
+
+.mb16 {
+    margin-bottom: 16px;
+}
+
+.wrapp {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    gap: 8px;
+}
+
+.input {
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #E6E6E6;
+    padding: 0 16px;
+    cursor: text;
+    outline: none;
+    color: rgba(32, 32, 32, 1);
+    font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+    -moz-appearance: textfield;
+}
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input::placeholder {
+    color: rgba(32, 32, 32, 0.4);
+    font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+}
+
+.filterSelectSmall {
+    select {
+        padding: 0 15px;
+        background: url('/images/CaretDownSmall.svg') no-repeat right 15px center;
+        
+    }
+}

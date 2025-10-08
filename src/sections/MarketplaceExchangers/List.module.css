@@ -1,0 +1,42 @@
+.list {
+    border: 1px solid #F1F1F5;
+    border-radius: 28px;
+    padding: 8px;
+    flex: 1;
+}
+
+.wrapper {
+    background: #fff;
+    border: 1px solid #F1F1F5;
+    border-radius: 20px;
+    padding-top: 20px;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 42px;
+    margin-bottom: 24px;
+}
+
+.mapLink {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.2;
+    color: #0C233A;
+    position: relative;
+    span {
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            background: #0C233A;
+            height: 1px;
+            width: 100%;
+            bottom: -1px;
+        }
+    }
+}
