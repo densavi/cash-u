@@ -5,6 +5,85 @@ import Filter from "./Filter";
 import List from "./List";
 
 export default function MarketplaceExchangers() {
+
+    const FiatList = [
+        {
+            logo: 'images/kitlogo.svg',
+            name: 'Kyt obmin',
+            rate: '41,65',
+            address: 'вул. Саксаганського, 87',
+            rating: 2.2,
+            votes: '52',
+        },
+        {
+            logo: 'images/Obmenat24.svg',
+            name: 'Obmenat24',
+            rate: '41,65',
+            address: 'Галицька пл., 3',
+            rating: 3.5,
+            votes: '52',
+        },
+        {
+            logo: 'images/menora.svg',
+            name: 'Менора',
+            rate: '41,65',
+            address: 'Берестейський проспект, 136ж выпыврры впвывып выпывп ывппыв ывп ывп ы ',
+            rating: 4.9,
+            votes: '52',
+        },
+        {
+            logo: 'images/21Vik.svg',
+            name: '21Vik',
+            rate: '41,65',
+            address: 'вул. Євгена Чикаленка, 20',
+            rating: 3.4,
+            votes: '52',
+        },
+        {
+            logo: 'images/X-change.svg',
+            name: 'Kyt obmin',
+            rate: '41,65',
+            address: 'вул. Саксаганського, 87',
+            rating: 2.5,
+            votes: '52',
+        },
+        {
+            logo: 'images/kitlogo.svg',
+            name: 'Kyt obmin',
+            rate: '41,65',
+            address: 'вул. Саксаганського, 87',
+            rating: 5.0,
+            votes: '52',
+        },
+        {
+            logo: 'images/kitlogo.svg',
+            name: 'Kyt obmin',
+            rate: '41,65',
+            address: 'вул. Саксаганського, 87',
+            rating: 4.5,
+            votes: '52',
+        },
+    ]
+
+    const CryptoList = [
+        {
+            logo: 'images/kitlogo.svg',
+            name: 'Kyt obmin',
+            rate: '41,65',
+            address: 'вул. Саксаганського, 87',
+            rating: 4.5,
+            votes: '52',
+        },
+        {
+            logo: 'images/Obmenat24.svg',
+            name: 'Obmenat24',
+            rate: '41,65',
+            address: 'Галицька пл., 3',
+            rating: 4.4,
+            votes: '52',
+        }
+    ]
+
     return (
         <section className={styles.MarketplaceExchangers}>
             <div className={styles.container}>
@@ -14,7 +93,10 @@ export default function MarketplaceExchangers() {
 
                 <div className={styles.wrapper}>
                     <Filter />
-                    <List />
+                    <List
+                        FiatList={FiatList}
+                        CryptoList={CryptoList}
+                    />
                 </div>
 
             </div>

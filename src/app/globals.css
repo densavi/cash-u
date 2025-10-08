@@ -82,6 +82,7 @@ img {
   cursor: pointer;
   justify-content: center;
   text-align: center;
+    transition: all .5s ease;
 }
 
 .btn-purple {

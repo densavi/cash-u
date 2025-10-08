@@ -52,7 +52,8 @@
 }
 
 .wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: 314px 1fr;
     gap: 8px;
 }
 

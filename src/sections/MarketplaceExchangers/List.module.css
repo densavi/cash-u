@@ -10,6 +10,8 @@
     border: 1px solid #F1F1F5;
     border-radius: 20px;
     padding-top: 20px;
+    height: 100%;
+    overflow: hidden;
 }
 
 .head {
@@ -28,8 +30,10 @@
     line-height: 1.2;
     color: #0C233A;
     position: relative;
+
     span {
         position: relative;
+
         &:before {
             content: '';
             position: absolute;
@@ -39,4 +43,120 @@
             bottom: -1px;
         }
     }
+}
+
+.tabs {
+    display: flex;
+    width: max-content;
+    background: #F7F7F7;
+    border-radius: 100px;
+    padding: 6px;
+    list-style: none;
+
+    li {
+        padding: 8px 12px;
+        border-radius: 100px;
+        color: #0C233A;
+        cursor: pointer;
+
+        &.activeTab {
+            background: #202020;
+            color: #fff;
+            cursor: default;
+        }
+    }
+}
+
+.button {
+    background: transparent;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+    transition: background .5s ease;
+    &:hover {
+        background: #F4F4F4;
+        .button {
+            a {
+                background: #fff;
+            }
+        }
+    }
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(12, 35, 58, 0.4);
+    line-height: 1.2;
+    width: 170px;
+}
+
+.logo {
+    max-height: 60px;
+    width: 60px;
+    object-fit: contain;
+    display: flex;
+}
+
+.rate {
+    width: 110px;
+}
+
+.address {
+    color: #0C233A;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 209px;
+    padding-right: 15px;
+}
+
+.rating {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tab {
+    height: 302px;
+    overflow: auto;
+    position: relative;
+}
+
+.tabsWrapper {
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 72px;
+        background: #FFFFFF;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+        z-index: 2;
+        pointer-events: none;
+    }
+}
+
+.th {
+    height: auto;
+    margin-bottom: 5px;
+    &:hover {
+        background: transparent;
+    }
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #202020;
 }
