@@ -2,7 +2,7 @@
     padding-bottom: 150px;
     padding-top: 139px;
     position: relative;
-
+    z-index: 1;
     @media (max-width: 768px) {
         padding-top: 160px;
     }
