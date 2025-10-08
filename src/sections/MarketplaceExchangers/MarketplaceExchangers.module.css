@@ -17,6 +17,11 @@
         top: 40%;
         z-index: -1;
         pointer-events: none;
+        @media (max-width: 768px) {
+            background: url('/images/planet-mobile.png') no-repeat right;
+            height: 339px;
+            top: 99px;
+        }
     }
     &:after {
         content: '';
@@ -28,6 +33,11 @@
         top: 10%;
         z-index: -1;
         pointer-events: none;
+        @media (max-width: 768px) {
+            background: url('/images/meteor-mobile.png') no-repeat left;
+            height: 407px;
+            top: 0px;
+        }
     }
 }
 
