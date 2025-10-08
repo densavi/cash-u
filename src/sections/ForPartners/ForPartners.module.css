@@ -1,0 +1,133 @@
+.forPartners {
+    padding-bottom: 150px;
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10%;
+        background: url('/images/for-partners-bg.png') left no-repeat;
+        height: 803px;
+        width: 100%;
+        z-index: -1;
+        pointer-events: none;
+        @media (max-width: 1023px) {
+            top: auto;
+            bottom: -248px;
+            background: url('/images/for-partners-bg-tablet.png') left no-repeat;
+            height: 529px;
+        }
+    }
+}
+
+.wrap {
+    display: grid;
+    grid-template-columns: 1fr 650px;
+    gap: 50px;
+    @media (max-width: 1110px) {
+        grid-template-columns: 1fr 604px;
+        gap: 25px;
+    }
+    @media (max-width: 1023px) {
+        grid-template-columns: 1fr;
+    }
+    @media (max-width: 768px) {
+        gap: 0;
+    }
+}
+
+
+
+.headingAlign {
+    justify-content: flex-start;
+    margin-bottom: 32px;
+    @media (max-width: 1023px) {
+        justify-content: center;
+        margin-bottom: 24px;
+    }
+}
+
+.title {
+    font-size: 56px;
+    line-height: .9;
+    letter-spacing: -.5px;
+    @media (max-width: 1023px) {
+        text-align: center;
+    }
+    @media (max-width: 768px) {
+        font-size: 38px;
+        margin-bottom: 40px;
+    }
+}
+
+.list {
+    display: grid;
+    gap: 20px;
+    @media (max-width: 768px) {
+        gap: 10px;
+    }
+}
+
+.button {
+    margin-top: 20px;
+    @media (max-width: 1023px) {
+        max-width: 343px;
+        margin: 20px auto 0;
+    }
+}
+
+.item {
+    border: 1px solid #F1F1F5;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .3);
+    padding: 8px;
+}
+
+.content {
+    background: #fff;
+    padding: 20px 20px 20px 24px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 40px;
+    @media (max-width: 550px) {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+.image {
+    border-radius: 16px;
+    overflow: hidden;
+    @media (max-width: 768px) {
+        margin: 0 auto;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.num {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: -.5px;
+    color: #202020;
+    @media (max-width: 768px) {
+        margin-bottom: 55px;
+    }
+}
+
+.ttl {
+    font-size: 24px;
+    line-height: .9;
+}
+
+.description {
+    color: #202020;
+    line-height: 1.2;
+    opacity: .6;
+    margin-top: 16px;
+}
