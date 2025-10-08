@@ -1,12 +1,60 @@
+'use client';
+import { useState } from 'react';
 import styles from "./Faq.module.css";
-
-import Link from "next/link";
-import Image from "next/image";
+import Heading from "@/components/Heading/Heading";
 
 export default function Faq() {
+    const [openIndex, setOpenIndex] = useState(null);
+
+    const FaqData = [
+        {
+            question: "Як користуватися картою обмінників?",
+            answer: "Просто відкрийте карту на сайті або в застосунку, оберіть потрібну валюту й найближчий обмінник, перегляньте його курс і графік роботи та вирушайте за вказаним маршрутом."
+        },
+        {
+            question: "Які валюти та мережі доступні?",
+            answer: "Просто відкрийте карту на сайті або в застосунку, оберіть потрібну валюту й найближчий обмінник, перегляньте його курс і графік роботи та вирушайте за вказаним маршрутом."
+        },
+        {
+            question: "Як стати партнером?",
+            answer: "Просто відкрийте карту на сайті або в застосунку, оберіть потрібну валюту й найближчий обмінник, перегляньте його курс і графік роботи та вирушайте за вказаним маршрутом."
+        },
+    ];
+
     return (
-        <div>
-            <h1>Faq</h1>
-        </div>
-    )
+        <section className={styles.faq}>
+            <div className={styles.faqContainer}>
+                <Heading title="Ваші питання — наші відповіді" imageSrc="/images/Question.svg" />
+                <h4 className={`${styles.title} text-gradient-1`}>Більше інформації</h4>
+
+                <div className={styles.wrap}>
+                    {FaqData.map((item, i) => {
+                        const isOpen = openIndex === i;
+
+                        return (
+                            <div key={i} className={`${styles.item} ${isOpen ? styles.active : ''}`}>
+                                <div className={styles.content}>
+                                    <div
+                                        className={styles.hero}
+                                        onClick={() => setOpenIndex(isOpen ? null : i)}
+                                    >
+                                        <span className="text-gradient-1">{item.question}</span>
+                                        <div className={`${styles.sign} ${isOpen ? styles.minus : null}`}>
+                                            <span></span>
+                                        </div>
+                                    </div>
+
+                                    {isOpen && (
+                                        <div className={styles.answer}>
+                                            {item.answer}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
 }

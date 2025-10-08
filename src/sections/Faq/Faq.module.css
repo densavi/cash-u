@@ -1,0 +1,151 @@
+.faq {
+    margin-bottom: 200px;
+    position: relative;
+    @media (max-width: 768px) {
+        margin-bottom: 150px;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        top: -28%;
+        left: 0;
+        width: 100%;
+        background: url('/images/faq-bg.png') right no-repeat;
+        z-index: -1;
+        pointer-events: none;
+        height: 758px;
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+}
+
+.faqContainer {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 904px;
+    padding: 0 15px;
+}
+
+.title {
+    margin-bottom: 60px;
+    font-size: 56px;
+    line-height: .9;
+    text-align: center;
+    @media (max-width: 768px) {
+        font-size: 38px;
+        margin-bottom: 40px;
+    }
+}
+
+.wrap {
+    display: grid;
+    gap: 10px;
+}
+
+.item {
+    border-radius: 28px;
+    border: 1px solid #F1F1F5;
+    padding: 8px;
+    background: rgba(255,255,255,.3);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.content {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #F1F1F5;
+    padding: 24px 29px;
+    @media (max-width: 768px) {
+        padding: 24px;
+    }
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: .9;
+    @media (max-width: 768px) {
+        font-size: 20px;
+    }
+}
+
+.answer {
+    padding-top: 5px;
+    max-width: 543px;
+    color: #202020;
+    font-size: 16px;
+    line-height: 1.2;
+    opacity: .6;
+    @media (max-width: 768px) {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+}
+
+.sign {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: #6335FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .5s ease;
+    box-shadow: 0px 0px 12px 1px rgba(152,133,255,1) inset;
+    -webkit-box-shadow: 0px 0px 12px 1px rgba(152,133,255,1) inset;
+    -moz-box-shadow: 0px 0px 12px 1px rgba(152,133,255,1) inset;
+    @media (max-width: 768px) {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+    span {
+        width: 20px;
+        height: 20px;
+        position: relative;
+
+        @media (max-width: 768px) {
+            width: 16px;
+            height: 16px;
+        }
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            background: #fff;
+            transition: all .5s ease;
+        }
+        &:before {
+            width: 100%;
+            height: 1px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &:after {
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+    }
+    &.minus {
+        background: #F4F4F4;
+        span {
+            &:after {
+                opacity: 0;
+            }
+            &:before {
+                background: #2B323F;
+            }
+        }
+    }
+}

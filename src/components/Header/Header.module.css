@@ -10,6 +10,8 @@
     border: 1px solid #F1F1F5;
     padding: 8px;
     border-radius: 28px;
+    background: rgba(255,255,255,.3);
+    backdrop-filter: blur(10px);
 }
 
 .content {

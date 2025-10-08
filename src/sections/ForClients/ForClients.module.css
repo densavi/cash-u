@@ -38,6 +38,7 @@
     background: rgba(255,255,255,.3);
     padding: 8px;
     position: relative;
+    backdrop-filter: blur(10px);
     &:before {
         content: '';
         position: absolute;

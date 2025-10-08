@@ -13,7 +13,7 @@
         pointer-events: none;
         @media (max-width: 1023px) {
             top: auto;
-            bottom: -248px;
+            bottom: -108px;
             background: url('/images/for-partners-bg-tablet.png') left no-repeat;
             height: 529px;
         }
@@ -81,6 +81,7 @@
     border-radius: 28px;
     background: rgba(255, 255, 255, .3);
     padding: 8px;
+    backdrop-filter: blur(10px);
 }
 
 .content {
