@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Subscribe() {
   return (
     <div className={styles.subscribe}>
-      <h4 className={`${styles.title} text-gradient-1`}>
+      <h4 className={`${styles.title}`}>
         Підпишіться на новини від Cash-U в сфері крипто-обміну
       </h4>
       <form className={styles.form}>

@@ -3,6 +3,8 @@ import Contacts from "@/sections/Contacts/Contacts";
 import ForClients from "@/sections/ForClients/ForClients";
 import Partners from "@/sections/Partners/Partners";
 import HowWork from "@/sections/HowWork/HowWork";
+import Reviews from "@/sections/Reviews/Reviews";
+import Faq from "@/sections/Faq/Faq";
 
 export const metadata = {
     title: "Приєднуйтесь до маркетплейсу обмінних мереж",
@@ -40,7 +42,11 @@ export default function JoinMarketplace() {
             <ForClients sectionData={BenefitsData} />
             <Partners />
             <HowWork />
-            <Contacts />
+            <Reviews />
+            <div className="footer-bg footer-bg-2">
+                <img className="footer-bg__image" src="/images/footer-bg.png" alt=""/>
+                <Contacts />
+            </div>
         </>
     );
 }

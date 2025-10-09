@@ -44,6 +44,10 @@
 .menuLink {
     line-height: 1.2;
     color: rgba(32, 32, 32, 0.6);
+    transition: color .5s ease;
+    &:hover {
+        color: rgba(32, 32, 32, 1);
+    }
 }
 
 .menuTitle {
@@ -51,6 +55,11 @@
     font-size: 18px;
     font-weight: 700;
     line-height: .9;
+    background: linear-gradient(177.56deg, #202020 2.04%, rgba(32, 32, 32, 0) 147.02%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 .logo {
@@ -157,26 +166,4 @@
         align-items: flex-start;
     }
 
-}
-
-.bg {
-    position: absolute;
-    display: flex;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    width: 100%;
-    height: auto;
-    max-height: inherit;
-    @media (max-width: 1440px) {
-        width: 1440px;
-        max-width: inherit;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    @media (max-width: 970px) {
-        width: 970px;
-        top: -330px;
-        bottom: auto;
-    }
 }

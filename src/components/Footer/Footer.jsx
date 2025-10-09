@@ -84,7 +84,7 @@ export default function Footer() {
 
                                 {footerMenus.map((menu, index) => (
                                     <div key={index} className={styles.menu}>
-                                        <h4 className={`${styles.menuTitle} text-gradient-1`}>{menu.title}</h4>
+                                        <h4 className={`${styles.menuTitle}`}>{menu.title}</h4>
                                         <ul className={styles.menuList}>
                                             {menu.items.map((item, idx) => (
                                                 <li key={idx} className={styles.menuItem}>
@@ -105,12 +105,11 @@ export default function Footer() {
 
                         <div className={styles.foot}>
                             <p className={styles.copyright}>© 2025 Cash-U. All rights reserved</p>
-                            <p className={styles.author}>Розробка сайту — Zagorodniy Studio</p>
+                            <p className={styles.author}>Розробка сайту — Zagorodniy Studio</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <img className={styles.bg} src="/images/footer-bg.png" alt=""/>
 
         </footer>
     );

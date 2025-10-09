@@ -3,6 +3,7 @@ import Heading from "@/components/Heading/Heading";
 import Link from "next/link";
 import Image from "next/image";
 
+
 export default function ForPartners() {
 
     const ForPartnersList = [
@@ -23,6 +24,7 @@ export default function ForPartners() {
         },
     ]
 
+
     return (
         <section className={styles.forPartners}>
             <div className="container">
@@ -33,16 +35,16 @@ export default function ForPartners() {
                             imageSrc="/images/Lightning.svg"
                             className={styles.headingAlign}
                         />
-                        <h3 className={`${styles.title} text-gradient-1`}>Партнерам</h3>
+                        <h3 className={`${styles.title}`}>Партнерам</h3>
                     </div>
                     <div className={styles.list}>
                         {ForPartnersList.map((item, i) => (
                             <div key={i} className={styles.item}>
                                 <div className={styles.content}>
                                     <div className={styles.info}>
-                                        <div className={`${styles.num} text-gradient-1`}>{String(i + 1).padStart(2, '0')}</div>
+                                        <div className={`${styles.num}`}>{String(i + 1).padStart(2, '0')}</div>
                                         <div>
-                                            <h4 className={`${styles.ttl} text-gradient-1`}>{item.title}</h4>
+                                            <h4 className={`${styles.ttl}`}>{item.title}</h4>
                                             <p className={styles.description}>{item.description}</p>
                                         </div>
                                     </div>

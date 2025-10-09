@@ -42,7 +42,10 @@ export default function Home() {
             <MarketplaceExchangers/>
             <ForClients sectionData={ClientsData}/>
             <ForPartners/>
-            <Faq/>
+            <div className="footer-bg">
+                <img className="footer-bg__image" src="/images/footer-bg.png" alt=""/>
+                <Faq/>
+            </div>
         </>
     );
 }

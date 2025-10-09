@@ -24,6 +24,7 @@
     display: grid;
     grid-template-columns: 1fr 650px;
     gap: 50px;
+    align-items: flex-start;
     @media (max-width: 1110px) {
         grid-template-columns: 1fr 604px;
         gap: 25px;
@@ -51,6 +52,11 @@
     font-size: 56px;
     line-height: .9;
     letter-spacing: -.5px;
+    background: linear-gradient(180.02deg, #202020 0.02%, rgba(32, 32, 32, 0) 137.97%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     @media (max-width: 1023px) {
         text-align: center;
     }
@@ -115,7 +121,11 @@
     font-size: 18px;
     line-height: 1.4;
     letter-spacing: -.5px;
-    color: #202020;
+    background: linear-gradient(150.89deg, #202020 7.6%, rgba(32, 32, 32, 0) 89.83%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     @media (max-width: 768px) {
         margin-bottom: 55px;
     }
@@ -124,6 +134,11 @@
 .ttl {
     font-size: 24px;
     line-height: .9;
+    background: linear-gradient(177.56deg, #202020 2.04%, rgba(32, 32, 32, 0) 147.02%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 .description {
@@ -131,4 +146,12 @@
     line-height: 1.2;
     opacity: .6;
     margin-top: 16px;
+}
+
+.sectionInfo {
+    position: sticky;
+    top: 100px;
+    @media (max-width: 1023px) {
+        position: static;
+    }
 }

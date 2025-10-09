@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import styles from "./Faq.module.css";
 import Heading from "@/components/Heading/Heading";
+import Link from "next/link";
 
 export default function Faq() {
     const [openIndex, setOpenIndex] = useState(null);
@@ -25,7 +26,7 @@ export default function Faq() {
         <section className={styles.faq}>
             <div className={styles.faqContainer}>
                 <Heading title="Ваші питання — наші відповіді" imageSrc="/images/Question.svg" />
-                <h4 className={`${styles.title} text-gradient-1`}>Більше інформації</h4>
+                <h4 className={`${styles.title}`}>Більше інформації</h4>
 
                 <div className={styles.wrap}>
                     {FaqData.map((item, i) => {
@@ -38,7 +39,7 @@ export default function Faq() {
                                         className={styles.hero}
                                         onClick={() => setOpenIndex(isOpen ? null : i)}
                                     >
-                                        <span className="text-gradient-1">{item.question}</span>
+                                        <span className={styles.question}>{item.question}</span>
                                         <div className={`${styles.sign} ${isOpen ? styles.minus : null}`}>
                                             <span></span>
                                         </div>
@@ -53,6 +54,14 @@ export default function Faq() {
                             </div>
                         );
                     })}
+                </div>
+
+                <div className={styles.bottomText}>
+                    Залишились питання?
+                    {" "}
+                    <Link href="#">
+                        Зв’яжіться з нами
+                    </Link>
                 </div>
             </div>
         </section>

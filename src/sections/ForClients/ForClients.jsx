@@ -11,7 +11,7 @@ export default function ForClients({sectionData}) {
             <div className="container">
                 <Heading imageSrc={sectionData.headingIcon}
                          title={sectionData.headingText} />
-                <h3 className={`${styles.title} text-gradient-1`}>
+                <h3 className={`${styles.title}`}>
                     {sectionData.title}
                 </h3>
 

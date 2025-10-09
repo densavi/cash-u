@@ -107,3 +107,17 @@
         padding: 0 12px;
     }
 }
+
+.lang {
+    width: 69px;
+    height: 40px;
+    padding-left: 12px;
+    border: 0;
+    outline: none;
+    font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    color: rgba(32, 32, 32, 0.5);
+    appearance: none;
+    cursor: pointer;
+    background: url("/images/CaretDown.svg") center right 12px no-repeat;
+}

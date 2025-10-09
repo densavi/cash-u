@@ -11,7 +11,7 @@ export default function Heading({title, iconText, imageSrc, className}) {
                         <Image src={imageSrc} alt="Social Link 1" width="18" height="18" />
                         {iconText}
                     </div>
-                    <p className="text-gradient-2">{title}</p>
+                    <p className={styles.headingGradient}>{title}</p>
                 </div>
             </h5>
         </div>
