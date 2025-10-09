@@ -49,7 +49,9 @@ export default function ForClients({sectionData}) {
                 )}
 
             </div>
-            <img className={styles.bg} src="/images/for-clients-bg.png" alt=""/>
+            {sectionData.background && (
+                <img className={styles.bg} src={sectionData.background} alt=""/>
+            )}
         </section>
     )
 }

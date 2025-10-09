@@ -1,0 +1,97 @@
+.partners {
+    margin-bottom: 150px;
+}
+
+.wrap {
+    border-radius: 28px;
+    padding: 8px;
+    border: 1px solid #F1F1F5;
+    background: rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    position: relative;
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity .5s ease;
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+    &:before {
+        background: url('/images/partners-blur-right.png') top right no-repeat;
+        height: 645px;
+        top: -31%;
+        right: -13%;
+        left: auto;
+    }
+    &:after {
+        background: url('/images/partners-blur-left.png') bottom left no-repeat;
+        height: 704px;
+        top: auto;
+        bottom: -36%;
+        left: -13%;
+    }
+    &:hover {
+        &:before,
+        &:after {
+            opacity: 1;
+        }
+    }
+}
+
+.content {
+    border-radius: 20px;
+    border: 1px solid #F1F1F5;
+    background: #fff;
+    padding: 60px 15px;
+    overflow: hidden;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+        pointer-events: none;
+        height: 392px;
+
+    }
+
+    &:before {
+        background: url('/images/partners-left.png') left bottom no-repeat;
+        bottom: 0;
+        @media (max-width: 768px) {
+            background: url('/images/partners-left-mobile.png') left bottom no-repeat;
+            background-size: 100% auto;
+            height: 100%;
+        }
+    }
+
+    &:after {
+        background: url('/images/partners-right.png') right top no-repeat;
+        top: 0;
+        @media (max-width: 768px) {
+            background: url('/images/partners-right-mobile.png') right top no-repeat;
+            height: 286px;
+        }
+
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.description {
+    max-width: 520px;
+    margin: 0 auto 40px;
+}
