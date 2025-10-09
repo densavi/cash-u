@@ -26,12 +26,13 @@ export default function HowWork() {
                 <h4 className={`${styles.title} title`}>Як працює наш маркетплейс?</h4>
             </div>
             <div className={styles.container}>
-                <div className={styles.diagram}>
-                    <div><span>01</span></div>
-                    <div><span>02</span></div>
-                    <div><span>03</span></div>
-                </div>
+
                 <div className={styles.list}>
+                    <div className={styles.diagram}>
+                        <div><span>01</span></div>
+                        <div><span>02</span></div>
+                        <div><span>03</span></div>
+                    </div>
                     {HowWorkData.map((item, index) => (
                         <div key={index} className={styles.item}>
                             <div className={styles.content}>
