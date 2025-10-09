@@ -2,6 +2,7 @@ import HeroSection from "@/sections/HeroSection/HeroSection";
 import Contacts from "@/sections/Contacts/Contacts";
 import ForClients from "@/sections/ForClients/ForClients";
 import Partners from "@/sections/Partners/Partners";
+import HowWork from "@/sections/HowWork/HowWork";
 
 export const metadata = {
     title: "Приєднуйтесь до маркетплейсу обмінних мереж",
@@ -38,6 +39,7 @@ export default function JoinMarketplace() {
             <HeroSection />
             <ForClients sectionData={BenefitsData} />
             <Partners />
+            <HowWork />
             <Contacts />
         </>
     );
