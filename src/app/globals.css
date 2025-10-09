@@ -117,6 +117,10 @@ img {
     letter-spacing: -.5px;
     line-height: .9;
     font-size: 56px;
+    background: linear-gradient(180.02deg, #202020 0.02%, rgba(32, 32, 32, 0) 137.97%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     @media (max-width: 768px) {
         font-size: 38px;
     }

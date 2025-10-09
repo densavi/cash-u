@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import MarketplaceExchangers from "@/sections/MarketplaceExchangers/MarketplaceExchangers";
 import ForClients from "@/sections/ForClients/ForClients";
 import ForPartners from "@/sections/ForPartners/ForPartners";
@@ -39,7 +38,7 @@ export default function Home() {
 
     return (
         <>
-            <MarketplaceExchangers/>
+            <MarketplaceExchangers />
             <ForClients sectionData={ClientsData}/>
             <ForPartners/>
             <div className="footer-bg">
