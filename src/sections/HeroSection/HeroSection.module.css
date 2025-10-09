@@ -1,0 +1,38 @@
+.hero {
+    padding: 229px 15px 339px;
+    text-align: center;
+    position: relative;
+    @media (max-width: 768px) {
+        padding: 200px 15px;
+    }
+}
+
+.title {
+    max-width: 890px;
+    margin: 0 auto 16px;
+    @media (max-width: 768px) {
+        margin-bottom: 24px;
+    }
+}
+
+.description {
+    max-width: 530px;
+    margin: 0 auto 40px;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    max-height: inherit;
+    z-index: -1;
+    pointer-events: none;
+    @media (max-width: 1095px) {
+        max-width: inherit;
+        width: 1095px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

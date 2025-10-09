@@ -124,3 +124,30 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.title {
+    text-align: center;
+    letter-spacing: -.5px;
+    line-height: .9;
+    font-size: 56px;
+    @media (max-width: 768px) {
+        font-size: 38px;
+    }
+}
+
+.mb16 {
+    margin-bottom: 16px;
+    @media (max-width: 768px) {
+        margin-bottom: 24px;
+    }
+}
+
+.description {
+    color: #202020;
+    font-size: 18px;
+    line-height: 1.2;
+    opacity: .6;
+    @media (max-width: 768px) {
+        font-size: 16px;
+    }
+}
