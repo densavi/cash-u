@@ -4,47 +4,31 @@ import Heading from "@/components/Heading/Heading";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ForClients() {
-
-    const ForClientsItems = [
-        {
-            icon: '/images/for-clients-1.png',
-            title: 'Легкий доступ до обмінних мереж',
-            description: 'Обирайте зручні обмінні мережі та пункти видачі готівки в один клік'
-        },
-        {
-            icon: '/images/for-clients-2.png',
-            title: 'Швидкі та надійні транзакції',
-            description: 'Обмінюйте криптовалюту та фіат миттєво з гарантією безпеки'
-        },
-        {
-            icon: '/images/for-clients-3.png',
-            title: 'Зручний пошук по локаціям',
-            description: 'Керуйте обмінами з доступом до ваших улюблених мереж'
-        },
-        {
-            icon: '/images/for-clients-4.png',
-            title: 'Реальні курси в реальному часі',
-            description: 'Керуйте обмінами з доступом до ваших улюблених мереж'
-        },
-    ]
+export default function ForClients({sectionData}) {
 
     return (
         <section className={styles.forClients}>
             <div className="container">
-                <Heading imageSrc="images/ShieldCheck.svg"
-                         title="Надійний захист / Швидкі транзакції / 125+ Партнерів"/>
+                <Heading imageSrc={sectionData.headingIcon}
+                         title={sectionData.headingText} />
                 <h3 className={`${styles.title} text-gradient-1`}>
-                    Клієнтам
+                    {sectionData.title}
                 </h3>
 
                 <div className={styles.wrap}>
-                    {ForClientsItems.map((item, i) => (
+                    {sectionData.list.map((item, i) => (
                         <div key={i} className={styles.item}>
                             <div className={styles.content}>
-                                <div className={styles.icon}>
-                                    <Image src={item.icon} alt={item.title} width="60" height="60" />
-                                </div>
+                                {item.icon ? (
+                                    <div className={styles.icon}>
+                                        <Image src={item.icon} alt={item.title} width="60" height="60" />
+                                    </div>
+                                ) : (
+                                    <div className={styles.icon}>
+                                        {(i + 1).toString().padStart(2, '0')}
+                                    </div>
+                                )}
+
                                 <h3 className={styles.heading}>
                                     {item.title}
                                 </h3>
@@ -56,11 +40,13 @@ export default function ForClients() {
                     ))}
                 </div>
 
-                <div className={styles.button}>
-                    <Link href="#" className="btn btn-purple btn-lg">
-                        Зареєструватися
-                    </Link>
-                </div>
+                {sectionData.buttonLink && (
+                    <div className={styles.button}>
+                        <Link href={sectionData.buttonLink} className="btn btn-purple btn-lg">
+                            {sectionData.buttonText}
+                        </Link>
+                    </div>
+                )}
 
             </div>
             <img className={styles.bg} src="/images/for-clients-bg.png" alt=""/>

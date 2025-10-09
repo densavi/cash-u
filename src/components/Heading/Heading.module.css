@@ -17,6 +17,8 @@
     display: inline-flex;
     background: rgba(255,255,255,.3);
     backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
 
     span {
         font-weight: 800;
