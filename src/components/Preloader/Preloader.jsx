@@ -1,72 +1,39 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Preloader.module.css';
 
 export default function Preloader() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [progress, setProgress] = useState(1);
     const [isVisible, setIsVisible] = useState(true);
     const [shouldRender, setShouldRender] = useState(true);
-    const rafRef = useRef();
-
-    const handleMouseMove = useCallback((e) => {
-        if (rafRef.current) {
-            cancelAnimationFrame(rafRef.current);
-        }
-
-        rafRef.current = requestAnimationFrame(() => {
-            const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
-            const normalizedY = (e.clientY / window.innerHeight) * 2 - 1;
-            
-            setMousePosition({
-                x: normalizedX,
-                y: normalizedY
-            });
-        });
-    }, []);
 
     useEffect(() => {
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            if (rafRef.current) {
-                cancelAnimationFrame(rafRef.current);
-            }
-        };
-    }, [handleMouseMove]);
-
-    // Анимация прогресса
-    useEffect(() => {
-        const duration = 3000;
+        const duration = 2000;
         const interval = 50;
         const increment = 100 / (duration / interval);
         
-
-        const startTimer = setTimeout(() => {
-            const timer = setInterval(() => {
-                setProgress(prev => {
-                    if (prev >= 100) {
-                        clearInterval(timer);
-                        // Задержка перед исчезновением
+        const timer = setInterval(() => {
+            setProgress(prev => {
+                if (prev >= 100) {
+                    clearInterval(timer);
+                    setTimeout(() => {
+                        setIsVisible(false);
                         setTimeout(() => {
-                            setIsVisible(false);
-                            // Полное удаление из DOM после анимации
-                            setTimeout(() => {
-                                setShouldRender(false);
-                            }, 500);
+                            setShouldRender(false);
                         }, 500);
-                        return 100;
-                    }
-                    return Math.min(prev + increment, 100);
-                });
-            }, interval);
-        }, 50);
+                    }, 500);
+                    return 100;
+                }
+                return Math.min(prev + increment, 100);
+            });
+        }, interval);
 
         return () => {
-            clearTimeout(startTimer);
+            clearInterval(timer);
         };
     }, []);
+    
     if (!shouldRender) return null;
 
     return (
@@ -119,22 +86,6 @@ export default function Preloader() {
                     </div>
                 </div>
             </div>
-            <img 
-                className={styles.top} 
-                src="/images/preloader-top.png" 
-                alt="" 
-                style={{
-                    transform: `translate(${Math.min(0, mousePosition.x) * 20}px, ${Math.min(0, mousePosition.y) * 20}px)`
-                }}
-            />
-            <img 
-                className={styles.bottom} 
-                src="/images/preloader-bottom.png" 
-                alt="" 
-                style={{
-                    transform: `translate(${Math.min(0, mousePosition.x) * -15}px, ${Math.min(0, mousePosition.y) * -15}px)`
-                }}
-            />
         </div>
     )
 }

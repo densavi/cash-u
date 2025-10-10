@@ -28,7 +28,17 @@ export default function Reviews() {
         if (canScrollInside) {
             e.preventDefault();
             e.stopPropagation();
-            el.scrollTop += e.deltaY;
+            
+            // Проверяем, мобильное ли устройство
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Медленный скролл для мобильных устройств
+                el.scrollTop += e.deltaY * 0.2;
+            } else {
+                // Быстрый скролл для десктопа (как было изначально)
+                el.scrollTop += e.deltaY;
+            }
         }
         // If cannot scroll inside (reached edge), do not preventDefault -> event bubbles to page (Lenis)
     }, []);
@@ -51,9 +61,7 @@ export default function Reviews() {
             if (!(e.touches && e.touches.length > 0)) return;
             const currentY = e.touches[0].clientY;
             const deltaY = touchStartY - currentY; // positive when swiping up (scroll down)
-            // Create a WheelEvent-like object for reuse of logic
-            const synthetic = { deltaY };
-
+            
             const atTop = el.scrollTop <= 0;
             const atBottom = Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight;
             const scrollingDown = deltaY > 0;
@@ -63,7 +71,9 @@ export default function Reviews() {
             if (canScrollInside) {
                 e.preventDefault();
                 e.stopPropagation();
-                el.scrollTop += deltaY;
+                
+                // Медленный скролл для мобильных устройств
+                el.scrollTop += deltaY * 0.15;
             }
             // else let it bubble to page (Lenis)
         };

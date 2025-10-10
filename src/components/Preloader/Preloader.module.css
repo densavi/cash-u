@@ -22,8 +22,9 @@
     object-fit: contain;
     position: relative;
     z-index: 5;
-    max-width: 666px;
+    max-width: 500px;
     margin: 0 auto;
+    max-height: 90%;
     @media (max-width: 768px) {
         width: 100%;
         height: auto;
@@ -31,22 +32,21 @@
         position: absolute;
         left: 0;
         bottom: 55px;
+        max-height: 100%;
     }
 }
 
 .planetGrow {
-    animation: planetGrow 3s ease-out forwards;
-    transform: scale(0.3);
+    animation: planetGrow 2s ease-out forwards;
+    transform: scale(0.1);
 }
 
 @keyframes planetGrow {
     0% {
         transform: scale(0.3);
-        opacity: 0.7;
     }
     100% {
         transform: scale(1);
-        opacity: 1;
     }
 }
 
@@ -60,13 +60,14 @@
     overflow: hidden;
     @media (max-width: 768px) {
         transform: translateY(0);
-        top: 178px;
+        /* top: 178px; */
+        top: 50px;
     }
 }
 
 .marqueeContent {
     display: flex;
-    animation: marqueeScroll 20s linear infinite;
+    animation: marqueeScroll 10s linear infinite;
     white-space: nowrap;
 }
 
@@ -84,8 +85,8 @@
     color: #202020;
     margin-right: 140px;
     white-space: nowrap;
-    min-width: 499px;
-    width: 499px;
+    min-width: 332.67px;
+    width: 332.67px;
     @media (max-width: 768px) {
         margin-right: 40px;
         width: 147px;
@@ -144,6 +145,9 @@
     top: 0;
     left: 0;
     transition: transform 0.1s ease-out;
+    @media (max-width: 768px) {
+        display: none;
+    }
 }
 
 .bottom {
