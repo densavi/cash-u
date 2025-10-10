@@ -13,6 +13,7 @@ export default function Subscribe() {
         <input type="email" placeholder="Введіть Email" />
         <button className="btn btn-purple" type="submit">Підписатись</button>
       </form>
+      <p className={styles.success}>Дякуємо за підписку</p>
     </div>
   );
 }

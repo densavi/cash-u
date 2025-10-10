@@ -1,0 +1,175 @@
+.preloader {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;    
+    height: 100%;
+    background: #F7F7F7;
+    min-height: 700px;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.fadeOut {
+    opacity: 0;
+}
+
+.planet {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 5;
+    max-width: 666px;
+    margin: 0 auto;
+    @media (max-width: 768px) {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        bottom: 55px;
+    }
+}
+
+.planetGrow {
+    animation: planetGrow 3s ease-out forwards;
+    transform: scale(0.3);
+}
+
+@keyframes planetGrow {
+    0% {
+        transform: scale(0.3);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.marquee {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    opacity: 1;
+    overflow: hidden;
+    @media (max-width: 768px) {
+        transform: translateY(0);
+        top: 178px;
+    }
+}
+
+.marqueeContent {
+    display: flex;
+    animation: marqueeScroll 20s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.textItem {
+    font-size: 18px;
+    color: #202020;
+    margin-right: 140px;
+    white-space: nowrap;
+    min-width: 499px;
+    width: 499px;
+    @media (max-width: 768px) {
+        margin-right: 40px;
+        width: 147px;
+        min-width: 147px;
+    }
+}
+
+.loading {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 30px;
+    z-index: 6;
+}
+
+.rercents {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 56px;
+    font-weight: bold;
+    @media (max-width: 768px) {
+        font-size: 38px;
+
+    }
+}
+
+.progress {
+    border: 1px solid #F1F1F5;
+    padding: 8px;
+    background: rgba(255,255,255,.3);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    
+
+}
+
+.bg {
+    height: 54px;
+    padding: 5px;
+    border: 1px solid #F1F1F5;
+    background: #fff;
+    border-radius: 14px;
+}
+
+.progressBar {
+    width: 0;
+    height: 100%;
+    border-radius: 14px;
+    display: flex;
+    background: linear-gradient(90deg, #6335FC 0%, #835CE8 100%);
+    transition: width 0.1s ease-out;
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.1s ease-out;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: transform 0.1s ease-out;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+
+.blur {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 30%;
+    z-index: 7;
+    pointer-events: none;
+
+}
+
+.blur2 {
+    left: auto;
+    right: 30%;
+    transform: translate(50%, -50%);
+    pointer-events: none;
+}

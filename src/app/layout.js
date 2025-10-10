@@ -2,6 +2,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import LenisProvider from "@/hooks/LenisProvider";
+import Preloader from "@/components/Preloader/Preloader";
 
 export const metadata = {
     title: "Cash-U",
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
                         {children}
                     </div>
                     <Footer />
+                    <Preloader />
                 </LenisProvider>
             </body>
         </html>

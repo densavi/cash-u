@@ -91,8 +91,7 @@ export default function HowWork() {
         let curX1 = 0, curY1 = 0;
         let curX2 = 0, curY2 = 0;
 
-        const speed1 = 0.02; 
-        const speed2 = 0.015; 
+        const speed = 0.02; 
         const ease = 0.12;
 
         const onMouseMove = (e) => {
@@ -113,10 +112,10 @@ export default function HowWork() {
         };
 
         const tick = () => {
-            const desiredX1 = targetX * speed1;
-            const desiredY1 = targetY * speed1;
-            const desiredX2 = Math.max(0, -targetX * speed2);
-            const desiredY2 = -targetY * speed2;
+            const desiredX1 = targetX * speed;
+            const desiredY1 = targetY * speed;
+            const desiredX2 = -targetX * speed;
+            const desiredY2 = -targetY * speed;
 
             curX1 += (desiredX1 - curX1) * ease;
             curY1 += (desiredY1 - curY1) * ease;

@@ -4,12 +4,15 @@ import {useState, useRef, useCallback, useEffect} from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import StarRating from "@/components/StarRating";
+import MapModal from "@/components/MapModal";
+import MapModalContent from "@/components/MapModalContent";
 
 import styles from "./List.module.css";
 
 export default function List({FiatList, CryptoList}) {
 
     const [activeTab, setActiveTab] = useState(0);
+    const [isMapOpen, setIsMapOpen] = useState(false);
 
     const fiatRef = useRef(null);
     const cryptoRef = useRef(null);
@@ -94,6 +97,10 @@ export default function List({FiatList, CryptoList}) {
                         <a
                             href="#"
                             className={styles.mapLink}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setIsMapOpen(true);
+                            }}
                         >
                             <Image src="images/MapPin.svg" alt="Map pin" width="18" height="18"/>
                             <span>На мапі</span>
@@ -277,6 +284,9 @@ export default function List({FiatList, CryptoList}) {
 
                 </div>
             </div>
+            <MapModal isOpen={isMapOpen} onRequestClose={() => setIsMapOpen(false)}>
+                <MapModalContent onClose={() => setIsMapOpen(false)} />
+            </MapModal>
         </>
 
     )
