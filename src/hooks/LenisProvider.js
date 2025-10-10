@@ -19,6 +19,7 @@ export default function LenisProvider({ children, lerp = 0.08, wheelMultiplier =
             gestureOrientation: 'vertical',
             wheelEventsTarget: document.documentElement, // scroll on html, keep body non-scrollable
         });
+        // no global exposure
     
         let rafId;
         const frame = (time) => {

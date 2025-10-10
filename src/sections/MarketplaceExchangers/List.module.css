@@ -144,6 +144,7 @@
     height: 302px;
     overflow: auto;
     position: relative;
+    overscroll-behavior: contain;
     @media (max-width: 740px) {
         display: none;
     }

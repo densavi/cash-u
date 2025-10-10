@@ -1,5 +1,6 @@
 'use client';
 import Masonry from "react-masonry-css";
+import { useRef, useCallback, useEffect } from "react";
 
 import styles from './Reviews.module.css';
 import StarRating from "@/components/StarRating";
@@ -12,6 +13,71 @@ const breakpointColumnsObj = {
 };
 
 export default function Reviews() {
+    const wrapperRef = useRef(null);
+
+    const handleWheel = useCallback((e) => {
+        const el = wrapperRef.current;
+        if (!el) return;
+
+        const atTop = el.scrollTop <= 0;
+        const atBottom = Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight;
+        const scrollingDown = e.deltaY > 0;
+        const scrollingUp = e.deltaY < 0;
+
+        const canScrollInside = (scrollingDown && !atBottom) || (scrollingUp && !atTop);
+        if (canScrollInside) {
+            e.preventDefault();
+            e.stopPropagation();
+            el.scrollTop += e.deltaY;
+        }
+        // If cannot scroll inside (reached edge), do not preventDefault -> event bubbles to page (Lenis)
+    }, []);
+
+    useEffect(() => {
+        const el = wrapperRef.current;
+        if (!el) return;
+
+        let touchStartY = 0;
+
+        const onWheel = (e) => handleWheel(e);
+
+        const onTouchStart = (e) => {
+            if (e.touches && e.touches.length > 0) {
+                touchStartY = e.touches[0].clientY;
+            }
+        };
+
+        const onTouchMove = (e) => {
+            if (!(e.touches && e.touches.length > 0)) return;
+            const currentY = e.touches[0].clientY;
+            const deltaY = touchStartY - currentY; // positive when swiping up (scroll down)
+            // Create a WheelEvent-like object for reuse of logic
+            const synthetic = { deltaY };
+
+            const atTop = el.scrollTop <= 0;
+            const atBottom = Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight;
+            const scrollingDown = deltaY > 0;
+            const scrollingUp = deltaY < 0;
+            const canScrollInside = (scrollingDown && !atBottom) || (scrollingUp && !atTop);
+
+            if (canScrollInside) {
+                e.preventDefault();
+                e.stopPropagation();
+                el.scrollTop += deltaY;
+            }
+            // else let it bubble to page (Lenis)
+        };
+
+        el.addEventListener('wheel', onWheel, { passive: false });
+        el.addEventListener('touchstart', onTouchStart, { passive: true });
+        el.addEventListener('touchmove', onTouchMove, { passive: false });
+
+        return () => {
+            el.removeEventListener('wheel', onWheel);
+            el.removeEventListener('touchstart', onTouchStart);
+            el.removeEventListener('touchmove', onTouchMove);
+        };
+    }, [handleWheel]);
 
     const ReviewsList = [
         {
@@ -142,7 +208,7 @@ export default function Reviews() {
             <div className="container">
                 <h4 className={`${styles.title} title`}>Що кажуть наші клієнти</h4>
                 <div className={styles.shadow}>
-                    <div className={styles.wrapper}>
+                    <div className={styles.wrapper} ref={wrapperRef}>
                         <Masonry
                             breakpointCols={breakpointColumnsObj}
                             className={styles.masonryGrid}

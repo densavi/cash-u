@@ -1,36 +1,35 @@
 .howWork {
     margin-bottom: 150px;
     position: relative;
+}
 
-    &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-        background: url('/images/how-work-left.png') 0 60px no-repeat;
+.meteor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: url('/images/how-work-left.png') 0 60px no-repeat;
+
+    @media (max-width: 768px) {
+        display: none;
     }
+}
 
-    &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-        background: url('/images/how-works-right.png') right bottom -200px no-repeat;
-    }
+.meteor2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: url('/images/how-works-right.png') right bottom -200px no-repeat;
 
-    &:before,
-    &:after {
-        @media (max-width: 768px) {
-            display: none;
-        }
+    @media (max-width: 768px) {
+        display: none;
     }
 }
 
@@ -49,12 +48,14 @@
 .list {
     display: grid;
     gap: 50px;
+
     @media (max-width: 745px) {
         gap: 100px;
         position: relative;
         max-width: 318px;
         margin: 0 auto;
     }
+
     @media (max-width: 370px) {
         max-width: 250px;
     }
@@ -67,6 +68,21 @@
     padding: 8px;
     background: rgba(255, 255, 255, .3);
     backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+
+    &:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+
+    &:nth-child(2) {
+        animation-delay: 0.4s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 0.6s;
+    }
 
     &:nth-child(odd) {
         margin-left: auto;
@@ -80,6 +96,13 @@
 
     @media (max-width: 370px) {
         max-width: 208px;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -99,6 +122,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+
     @media (max-width: 745px) {
         font-size: 20px;
     }
@@ -119,28 +143,20 @@
     width: 8px;
     background: #fff;
     height: calc(100% - 115px);
+
     @media (max-width: 745px) {
         transform: translateX(0);
         left: 0;
     }
+
     @media (max-width: 745px) {
         height: calc(100% - 128px);
     }
+
     @media (max-width: 370px) {
         height: calc(100% - 170px);
     }
 
-
-
-    &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 126px;
-        background: #6335FC;
-    }
 
     div {
         position: absolute;
@@ -152,12 +168,15 @@
         border-radius: 50%;
         padding: 8px;
         z-index: 2;
+        transition: all 0.3s ease-out;
 
         &:nth-child(2) {
             top: calc(50% - 40px);
+
             @media (max-width: 745px) {
                 top: calc(50% - 25px);
             }
+
             @media (max-width: 370px) {
                 top: calc(50% - 48px);
             }
@@ -178,12 +197,33 @@
             justify-content: center;
             font-size: 18px;
             line-height: 1.4;
+            transition: all 0.3s ease-out;
         }
     }
+}
+
+.point {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 42px;
+    background: #6335FC;
+    transition: height 0.3s ease-out;
+    z-index: 1;
 }
 
 .button {
     display: flex;
     justify-content: center;
     margin-top: 40px;
+}
+
+.active {
+    color: #fff;
+
+    span {
+        background: #6335FC !important;
+
+    }
 }

@@ -1,5 +1,5 @@
 'use client'
-import {useState} from 'react';
+import {useState, useRef, useCallback, useEffect} from 'react';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +10,66 @@ import styles from "./List.module.css";
 export default function List({FiatList, CryptoList}) {
 
     const [activeTab, setActiveTab] = useState(0);
+
+    const fiatRef = useRef(null);
+    const cryptoRef = useRef(null);
+
+    const handleWheel = useCallback((el, e) => {
+        if (!el) return;
+        const atTop = el.scrollTop <= 0;
+        const atBottom = Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight;
+        const scrollingDown = e.deltaY > 0;
+        const scrollingUp = e.deltaY < 0;
+        const canScrollInside = (scrollingDown && !atBottom) || (scrollingUp && !atTop);
+        if (canScrollInside) {
+            e.preventDefault();
+            e.stopPropagation();
+            el.scrollTop += e.deltaY;
+        }
+    }, []);
+
+    useEffect(() => {
+        const attach = (el) => {
+            if (!el) return () => {};
+            let touchStartY = 0;
+            const onWheel = (e) => handleWheel(el, e);
+            const onTouchStart = (e) => {
+                if (e.touches && e.touches.length > 0) {
+                    touchStartY = e.touches[0].clientY;
+                }
+            };
+            const onTouchMove = (e) => {
+                if (!(e.touches && e.touches.length > 0)) return;
+                const currentY = e.touches[0].clientY;
+                const deltaY = touchStartY - currentY;
+                const atTop = el.scrollTop <= 0;
+                const atBottom = Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight;
+                const scrollingDown = deltaY > 0;
+                const scrollingUp = deltaY < 0;
+                const canScrollInside = (scrollingDown && !atBottom) || (scrollingUp && !atTop);
+                if (canScrollInside) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    el.scrollTop += deltaY;
+                }
+            };
+            el.addEventListener('wheel', onWheel, { passive: false });
+            el.addEventListener('touchstart', onTouchStart, { passive: true });
+            el.addEventListener('touchmove', onTouchMove, { passive: false });
+            return () => {
+                el.removeEventListener('wheel', onWheel);
+                el.removeEventListener('touchstart', onTouchStart);
+                el.removeEventListener('touchmove', onTouchMove);
+            };
+        };
+
+        const detachFiat = attach(fiatRef.current);
+        const detachCrypto = attach(cryptoRef.current);
+        return () => {
+            detachFiat && detachFiat();
+            detachCrypto && detachCrypto();
+        };
+    }, [handleWheel]);
 
     return (
         <>
@@ -58,7 +118,7 @@ export default function List({FiatList, CryptoList}) {
                                     </div>
                                     <div className={styles.button}></div>
                                 </div>
-                                <div className={styles.tab}>
+                                <div className={styles.tab} ref={fiatRef}>
                                     <div>
                                         {FiatList.map((fiat, index) => (
                                             <div key={index} className={styles.row}>
@@ -143,7 +203,10 @@ export default function List({FiatList, CryptoList}) {
                                     </div>
                                     <div className={styles.button}></div>
                                 </div>
-                                <div className={styles.tab}>
+                                <div
+                                    className={styles.tab}
+                                    ref={cryptoRef}
+                                >
                                     <div>
                                         {CryptoList.map((crypto, index) => (
                                             <div key={index} className={styles.row}>

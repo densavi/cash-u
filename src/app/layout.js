@@ -17,10 +17,10 @@ export default function RootLayout({ children }) {
             <body>
                 <LenisProvider lerp={0.08} wheelMultiplier={0.6}>
                     <Header />
-                        <div className="wrapper">
-                            {children}
-                        </div>
-                        <Footer />
+                    <div className="wrapper">
+                        {children}
+                    </div>
+                    <Footer />
                 </LenisProvider>
             </body>
         </html>

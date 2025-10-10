@@ -25,7 +25,7 @@ export default function ForClients({sectionData}) {
                                         <img src={item.icon} alt=""  width="60" height="60" />
                                     </div>
                                 ) : (
-                                    <div className={styles.icon}>
+                                    <div className={`${styles.icon} ${styles.iconNumber}`}>
                                         {(i + 1).toString().padStart(2, '0')}
                                     </div>
                                 )}

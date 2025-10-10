@@ -53,6 +53,11 @@ body.lenis {
     font-display: swap;
 }
 
+html {
+    width: 100%;
+    overflow: hidden;
+}
+
 body {
     color: var(--foreground);
     background: var(--background);
@@ -63,7 +68,6 @@ body {
     flex-direction: column;
     background: #F7F7F7;
     font-size: 14px;
-    overflow: hidden;
 }
 
 .container {
@@ -183,13 +187,14 @@ img {
         z-index: -1;
         top: 250px;
         @media (max-width: 1440px) {
-            width: 1440px;
+            width: 100%;
             max-width: inherit;
             left: 50%;
             transform: translateX(-50%);
         }
         @media (max-width: 970px) {
-            width: 970px;
+            height: 514px;
+            object-fit: cover;
             top: auto;
             bottom: -250px;
         }

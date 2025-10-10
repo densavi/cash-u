@@ -38,8 +38,10 @@
     pointer-events: none;
     @media (max-width: 1095px) {
         max-width: inherit;
-        width: 1095px;
+        width: 100%;
+        object-fit: cover;
         left: 50%;
+        height: 698px;
         transform: translateX(-50%);
     }
 }
