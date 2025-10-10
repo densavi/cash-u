@@ -1,22 +1,23 @@
 .forPartners {
     padding-bottom: 150px;
     position: relative;
-    &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 10%;
-        background: url('/images/for-partners-bg.png') left no-repeat;
-        height: 803px;
-        width: 100%;
-        z-index: -1;
-        pointer-events: none;
-        @media (max-width: 1023px) {
-            top: auto;
-            bottom: -108px;
-            background: url('/images/for-partners-bg-tablet.png') left no-repeat;
-            height: 529px;
-        }
+    overflow: visible;
+}
+
+.meteor {
+    position: absolute;
+    left: 0;
+    top: 10%;
+    background: url('/images/for-partners-bg.png') left no-repeat;
+    height: 803px;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+    @media (max-width: 1023px) {
+        top: auto;
+        bottom: -108px;
+        background: url('/images/for-partners-bg-tablet.png') left no-repeat;
+        height: 529px;
     }
 }
 
@@ -25,6 +26,7 @@
     grid-template-columns: 1fr 650px;
     gap: 50px;
     align-items: flex-start;
+    overflow: visible;
     @media (max-width: 1110px) {
         grid-template-columns: 1fr 604px;
         gap: 25px;
@@ -50,7 +52,6 @@
 
 .title {
     font-size: 56px;
-    line-height: .9;
     letter-spacing: -.5px;
     background: linear-gradient(180.02deg, #202020 0.02%, rgba(32, 32, 32, 0) 137.97%);
     -webkit-background-clip: text;
@@ -69,6 +70,7 @@
 .list {
     display: grid;
     gap: 20px;
+    overflow: visible;
     @media (max-width: 768px) {
         gap: 10px;
     }
@@ -80,6 +82,8 @@
         max-width: 343px;
         margin: 20px auto 0;
     }
+        position: static;
+        top: 300px;
 }
 
 .item {
@@ -89,6 +93,16 @@
     padding: 8px;
     backdrop-filter: blur(10px);
     transition: transform 0.2s ease;
+        position: sticky;
+        &:nth-child(1) {
+            top: 100px;
+        }
+        &:nth-child(2) {
+            top: 150px;
+        }
+        &:nth-child(3) {
+            top: 200px;
+        }
 }
 
 .content {
@@ -109,6 +123,11 @@
     overflow: hidden;
     @media (max-width: 768px) {
         margin: 0 auto;
+        width: 100%;
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
     }
 }
 
@@ -134,7 +153,6 @@
 
 .ttl {
     font-size: 24px;
-    line-height: .9;
     background: linear-gradient(177.56deg, #202020 2.04%, rgba(32, 32, 32, 0) 147.02%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

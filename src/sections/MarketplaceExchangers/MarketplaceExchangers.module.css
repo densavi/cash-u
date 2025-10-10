@@ -7,8 +7,8 @@
         padding-top: 160px;
     }
 
-    &:before {
-        content: '';
+
+    .planet {
         position: absolute;
         left: 0;
         width: 100%;
@@ -23,8 +23,8 @@
             top: 99px;
         }
     }
-    &:after {
-        content: '';
+
+    .meteor {
         position: absolute;
         right: 0;
         width: 100%;
@@ -53,12 +53,14 @@
     margin-bottom: 16px;
     font-size: 56px;
     letter-spacing: -.5px;
-    line-height: .9;
-    background: linear-gradient(93.29deg, #202020 69.54%, rgba(32, 32, 32, 0) 103.39%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+
+    span {
+        background: linear-gradient(93.29deg, #202020 69.54%, rgba(32, 32, 32, 0) 103.39%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
     @media (max-width: 768px) {
         font-size: 38px;
         margin-bottom: 24px;

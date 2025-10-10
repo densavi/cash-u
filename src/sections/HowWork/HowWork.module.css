@@ -93,7 +93,6 @@
 .heading {
     font-weight: bold;
     font-size: 24px;
-    line-height: .9;
     letter-spacing: -.5px;
     max-width: 70%;
     background: linear-gradient(177.56deg, #202020 2.04%, rgba(32, 32, 32, 0) 147.02%);

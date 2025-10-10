@@ -1,3 +1,5 @@
+'use client';
+
 import MarketplaceExchangers from "@/sections/MarketplaceExchangers/MarketplaceExchangers";
 import ForClients from "@/sections/ForClients/ForClients";
 import ForPartners from "@/sections/ForPartners/ForPartners";
@@ -11,22 +13,22 @@ export default function Home() {
         title: 'Клієнтам',
         list: [
             {
-                icon: '/images/for-clients-1.png',
+                icon: '/images/for-clients-1.svg',
                 title: 'Легкий доступ до обмінних мереж',
                 description: 'Обирайте зручні обмінні мережі та пункти видачі готівки в один клік'
             },
             {
-                icon: '/images/for-clients-2.png',
+                icon: '/images/for-clients-2.jpg',
                 title: 'Швидкі та надійні транзакції',
                 description: 'Обмінюйте криптовалюту та фіат миттєво з гарантією безпеки'
             },
             {
-                icon: '/images/for-clients-3.png',
+                icon: '/images/for-clients-3.jpg',
                 title: 'Зручний пошук по локаціям',
                 description: 'Керуйте обмінами з доступом до ваших улюблених мереж'
             },
             {
-                icon: '/images/for-clients-4.png',
+                icon: '/images/for-clients-4.jpg',
                 title: 'Реальні курси в реальному часі',
                 description: 'Керуйте обмінами з доступом до ваших улюблених мереж'
             },

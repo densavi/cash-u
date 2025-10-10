@@ -1,5 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { useState } from "react";
+
+
 import styles from "./Faq.module.css";
 import Heading from "@/components/Heading/Heading";
 import Link from "next/link";
@@ -21,6 +23,8 @@ export default function Faq() {
             answer: "Просто відкрийте карту на сайті або в застосунку, оберіть потрібну валюту й найближчий обмінник, перегляньте його курс і графік роботи та вирушайте за вказаним маршрутом."
         },
     ];
+
+  
 
     return (
         <section className={styles.faq}>
@@ -64,6 +68,8 @@ export default function Faq() {
                     </Link>
                 </div>
             </div>
+
+            <div className={styles.meteor}></div>
         </section>
     );
 }

@@ -21,7 +21,8 @@ export default function ForClients({sectionData}) {
                             <div className={styles.content}>
                                 {item.icon ? (
                                     <div className={styles.icon}>
-                                        <Image src={item.icon} alt={item.title} width="60" height="60" />
+                                        {/*<Image src={item.icon} alt={item.title} width="60" height="60" />*/}
+                                        <img src={item.icon} alt=""  width="60" height="60" />
                                     </div>
                                 ) : (
                                     <div className={styles.icon}>

@@ -1,10 +1,15 @@
+'use client';
+import { useEffect, useRef } from 'react';
 import styles from "./MarketplaceExchangers.module.css";
-
 import Heading from "@/components/Heading/Heading";
 import Filter from "./Filter";
 import List from "./List";
 
 export default function MarketplaceExchangers() {
+
+    const planetRef = useRef(null);
+    const lastPosition = useRef({ planetX: 0, planetY: 0 });
+    const scrollPosition = useRef({ planetScrollY: 0 });
 
     const FiatList = [
         {
@@ -93,11 +98,67 @@ export default function MarketplaceExchangers() {
         }
     ]
 
+    useEffect(() => {
+        const updateTransforms = () => {
+            const planetScale = 1 + Math.abs(lastPosition.current.planetX) / 200;
+
+            if (planetRef.current) {
+                planetRef.current.style.transform = `translate(${lastPosition.current.planetX}px, ${lastPosition.current.planetY + scrollPosition.current.planetScrollY}px) scale(${planetScale})`;
+            }
+           
+        };
+
+        const handleMouseMove = (e) => {
+            const { clientX, clientY } = e;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            const maxOffset = 5;
+            let planetOffsetX = ((clientX - centerX) / centerX) * maxOffset;
+            let planetOffsetY = ((clientY - centerY) / centerY) * maxOffset;
+
+            planetOffsetX = Math.min(planetOffsetX, 0);
+
+            const damping = 0.05;
+            lastPosition.current.planetX += (planetOffsetX - lastPosition.current.planetX) * damping;
+            lastPosition.current.planetY += (planetOffsetY - lastPosition.current.planetY) * damping;
+
+            lastPosition.current.planetX = Number(lastPosition.current.planetX.toFixed(2));
+            lastPosition.current.planetY = Number(lastPosition.current.planetY.toFixed(2));
+
+            updateTransforms();
+        };
+
+        const handleScroll = () => {
+            const scrollY = window.scrollY || document.documentElement.scrollTop;
+            scrollPosition.current.planetScrollY = scrollY * 0.05; // 50px на 1000px скролла
+            scrollPosition.current.planetScrollY = Number(scrollPosition.current.planetScrollY.toFixed(2));
+
+            console.log('Scroll:', {
+                scrollY,
+                planetScrollY: scrollPosition.current.planetScrollY,
+            });
+
+            updateTransforms();
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('mousemove', handleMouseMove);
+
+        handleScroll();
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+
+
     return (
         <section className={styles.MarketplaceExchangers}>
             <div className={styles.container}>
                 <Heading title={<>рейтинг від <span>2,000+</span> клієнтів</>} iconText="4.9" imageSrc="images/star.svg" />
-                <h1 className={`${styles.title} text-gradient-2`}>Маркетплейс обмінників</h1>
+                <h1 className={`${styles.title}`}><span>Маркетплейс обмінників</span></h1>
                 <p className={styles.description}>Перший маркетплейс з гнучким валюто-та крипто-обміном з надійними обмінниками</p>
 
                 <div className={styles.wrapper}>
@@ -109,6 +170,10 @@ export default function MarketplaceExchangers() {
                 </div>
 
             </div>
+
+            <div ref={planetRef} className={styles.planet}></div>
+            <div className={styles.meteor}></div>
+
         </section>
     )
 }

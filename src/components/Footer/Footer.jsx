@@ -105,7 +105,7 @@ export default function Footer() {
 
                         <div className={styles.foot}>
                             <p className={styles.copyright}>© 2025 Cash-U. All rights reserved</p>
-                            <p className={styles.author}>Розробка сайту — Zagorodniy Studio</p>
+                            <a href="https://www.instagram.com/zagorodniy_design" target="_blank" className={styles.author}>Розробка сайту — Zagorodniy Studio</a>
                         </div>
                     </div>
                 </div>

@@ -1,41 +1,57 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from "./ForPartners.module.css";
 import Heading from "@/components/Heading/Heading";
 import Link from "next/link";
 import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function ForPartners() {
 
-    const itemsRef = useRef([]);
-    const listRef = useRef(null);
+
+    const meteorRef = useRef(null);
+    const lastPosition = useRef({ meteorX: 0, meteorY: 0 });
+    const scrollPosition = useRef({ meteorScrollY: 0 });
 
     useEffect(() => {
-        const mm = gsap.matchMedia();
-        mm.add('(min-width: 1023px)', () => {
-            const items = itemsRef.current.slice(1);
+        const updateTransforms = () => {
+            const meteorRotate = lastPosition.current.meteorX / 4;
 
-            gsap.to(items, {
-                scrollTrigger: {
-                    trigger: listRef.current,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    scrub: true,
-                },
-                y: (index) => -((index + 1) * 100 + 50),
-                zIndex: (index) => index + 2,
-                stagger: 0,
-            });
-        })
+            if (meteorRef.current) {
+                meteorRef.current.style.transform = `translate(${lastPosition.current.meteorX}px, ${lastPosition.current.meteorY + scrollPosition.current.meteorScrollY}px) rotate(${meteorRotate}deg)`;
+            }
+        };
 
-        return () => mm.revert();
+        const handleMouseMove = (e) => {
+            const { clientX, clientY } = e;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
 
+            const maxOffset = 5;
+            let meteorOffsetX = ((clientX - centerX) / centerX) * maxOffset;
+            let meteorOffsetY = ((clientY - centerY) / centerY) * maxOffset;
+
+            meteorOffsetX = Math.max(meteorOffsetX, 0);
+
+            const damping = 0.05;
+            lastPosition.current.meteorX += (meteorOffsetX - lastPosition.current.meteorX) * damping;
+            lastPosition.current.meteorY += (meteorOffsetY - lastPosition.current.meteorY) * damping;
+
+            lastPosition.current.meteorX = Number(lastPosition.current.meteorX.toFixed(2));
+            lastPosition.current.meteorY = Number(lastPosition.current.meteorY.toFixed(2));
+
+            updateTransforms();
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
     }, []);
+
+
 
     const ForPartnersList = [
         {
@@ -51,7 +67,7 @@ export default function ForPartners() {
         {
             title: "Автоматизація процесів",
             description: "Підвищте ефективність бізнесу —автоматизуйте обмін, парсинг курсів, та залучення клієнтів",
-            image: '/images/for-partners-3.png'
+            image: '/images/for-partners-3.jpg'
         },
     ]
 
@@ -68,12 +84,11 @@ export default function ForPartners() {
                         />
                         <h3 className={`${styles.title}`}>Партнерам</h3>
                     </div>
-                    <div className={styles.list} ref={listRef}>
+                    <div className={styles.list} >
                         {ForPartnersList.map((item, i) => (
                             <div
                                 key={i}
                                 className={styles.item}
-                                ref={(el) => (itemsRef.current[i] = el)}
 
                             >
                                 <div className={styles.content}>
@@ -98,6 +113,7 @@ export default function ForPartners() {
                     </div>
                 </div>
             </div>
+            <div ref={meteorRef} className={styles.meteor}></div>
         </section>
     )
 }

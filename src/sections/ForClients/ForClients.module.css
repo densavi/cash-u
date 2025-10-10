@@ -7,7 +7,6 @@
     text-align: center;
     margin-bottom: 60px;
     font-size: 56px;
-    line-height: .9;
     letter-spacing: -.5px;
     background: linear-gradient(180.02deg, #202020 0.02%, rgba(32, 32, 32, 0) 137.97%);
     -webkit-background-clip: text;
@@ -24,6 +23,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    position: relative;
+    z-index: 2;
     @media (max-width: 1200px) {
         gap: 10px;
     }

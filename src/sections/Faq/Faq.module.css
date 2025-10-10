@@ -4,19 +4,19 @@
     @media (max-width: 768px) {
         padding-bottom: 150px;
     }
-    &:before {
-        content: '';
-        position: absolute;
-        top: -200px;
-        left: 0;
-        width: 100%;
-        background: url('/images/faq-bg.png') right no-repeat;
-        z-index: -1;
-        pointer-events: none;
-        height: 758px;
-        @media (max-width: 768px) {
-            display: none;
-        }
+}
+
+.meteor {
+    position: absolute;
+    top: -200px;
+    left: 0;
+    width: 100%;
+    background: url('/images/faq-bg.png') right no-repeat;
+    z-index: -1;
+    pointer-events: none;
+    height: 758px;
+    @media (max-width: 768px) {
+        display: none;
     }
 }
 
@@ -30,7 +30,6 @@
 .title {
     margin-bottom: 60px;
     font-size: 56px;
-    line-height: .9;
     text-align: center;
     background: linear-gradient(180.02deg, #202020 0.02%, rgba(32, 32, 32, 0) 137.97%);
     -webkit-background-clip: text;
@@ -82,7 +81,6 @@
     justify-content: space-between;
     font-size: 24px;
     font-weight: bold;
-    line-height: .9;
     @media (max-width: 768px) {
         font-size: 20px;
     }
