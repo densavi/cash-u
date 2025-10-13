@@ -37,7 +37,7 @@
 }
 
 .planetGrow {
-    animation: planetGrow 2s ease-out forwards;
+    animation: planetGrow 1.5s ease-out forwards;
     transform: scale(0.1);
 }
 

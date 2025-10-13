@@ -4,13 +4,25 @@ import { useState, useEffect } from 'react';
 import styles from './Preloader.module.css';
 
 export default function Preloader() {
-    const [progress, setProgress] = useState(1);
+    const [progress, setProgress] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
     const [shouldRender, setShouldRender] = useState(true);
+    const [animationStarted, setAnimationStarted] = useState(false);
 
     useEffect(() => {
-        const duration = 2000;
-        const interval = 50;
+        // Небольшая задержка чтобы синхронизировать старт анимации планеты и прогресса
+        const startDelay = setTimeout(() => {
+            setAnimationStarted(true);
+        }, 50);
+
+        return () => clearTimeout(startDelay);
+    }, []);
+
+    useEffect(() => {
+        if (!animationStarted) return;
+
+        const duration = 1500;
+        const interval = 30;
         const increment = 100 / (duration / interval);
         
         const timer = setInterval(() => {
@@ -32,13 +44,13 @@ export default function Preloader() {
         return () => {
             clearInterval(timer);
         };
-    }, []);
+    }, [animationStarted]);
     
     if (!shouldRender) return null;
 
     return (
         <div className={`${styles.preloader} ${!isVisible ? styles.fadeOut : ''}`}>
-            <img className={`${styles.planet} ${styles.planetGrow}`} src="/images/preloader-planet.png" alt="preloader" />
+            <img className={`${styles.planet} ${animationStarted ? styles.planetGrow : ''}`} src="/images/preloader-planet.png" alt="preloader" />
             <img className={`${styles.blur} ${styles.blur1}`} src="/images/preloader-blur.png" alt="" />
             <img className={`${styles.blur} ${styles.blur2}`} src="/images/preloader-blur.png" alt="" />
             <div className={styles.marquee}>
