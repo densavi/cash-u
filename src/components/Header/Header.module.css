@@ -51,10 +51,12 @@
     gap: 4px;
     color: rgba(32, 32, 32, 0.5);
     transition: all .5s ease;
+    border-radius: 8px;
 }
 
 .link:hover {
-    color: #202020;
+    color: rgba(99, 53, 252, 1);
+    background: rgba(247, 247, 247, 1);
 }
 
 .link svg {

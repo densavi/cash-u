@@ -5,6 +5,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import dynamic from 'next/dynamic';
+const Select = dynamic(() => import('react-select'), { ssr: false });
+
 import styles from "./Header.module.css";
 
 import AboutIcon from "@/icons/AboutIcon";
@@ -23,6 +26,11 @@ export default function Header() {
 
     const [user, setUser] = useState(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const langs = [
+        { value: 'ua', label: 'Укр' },
+        { value: 'en', label: 'Eng' },
+      ];
 
     return (
         <>
@@ -64,6 +72,13 @@ export default function Header() {
                                         <option value="ua">Укр</option>
                                         <option value="en">End</option>
                                     </select>
+                                    <Select 
+                                    options={langs} 
+                                    defaultValue={langs[0]} 
+                                    className={styles.langSelect} 
+                                    classNamePrefix="lang-select"
+                                    menuIsOpen={true}
+                                    />
                                     <Link className="btn" href="/">Увійти</Link>
                                     <Link className="btn btn-purple" href="/">Зареєструватися</Link>
                                 </div>
