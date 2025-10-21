@@ -12,9 +12,9 @@ export default function Footer() {
         {
             title: "Компанія",
             items: [
-                { name: "Про нас", link: "/" },
-                { name: "Партнерам", link: "/" },
-                { name: "Підтримка", link: "/" },
+                { name: "Клієнтам", link: "./#clients" },
+                { name: "Партнерам", link: "./#partners" },
+                { name: "Питання", link: "./#faq" },
             ],
         },
         {

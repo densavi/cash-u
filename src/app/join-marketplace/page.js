@@ -5,13 +5,13 @@ import Partners from "@/sections/Partners/Partners";
 import HowWork from "@/sections/HowWork/HowWork";
 import Reviews from "@/sections/Reviews/Reviews";
 import Faq from "@/sections/Faq/Faq";
+import AOSClient from "./AOSClient";
 
 export const metadata = {
     title: "Приєднуйтесь до маркетплейсу обмінних мереж",
 };
 
 export default function JoinMarketplace() {
-
     const BenefitsData = {
         headingIcon: '/images/ShieldCheck.svg',
         headingText: 'Надійність / База клієнтів / Автоматизація бізнесу',
@@ -38,6 +38,7 @@ export default function JoinMarketplace() {
 
     return (
         <>
+            <AOSClient />
             <HeroSection />
             <ForClients sectionData={BenefitsData} />
             <Partners />

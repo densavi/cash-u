@@ -1,5 +1,7 @@
 'use client';
 import { useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import styles from "./Faq.module.css";
 import Heading from "@/components/Heading/Heading";
@@ -30,12 +32,12 @@ export default function Faq() {
   
 
     return (
-        <section className={styles.faq}>
+        <section className={styles.faq} id="faq">
             <div className={styles.faqContainer}>
                 <Heading title="Ваші питання — наші відповіді" imageSrc="/images/Question.svg" />
-                <h4 className={styles.title}>Більше інформації</h4>
+                <h4 className={styles.title} data-aos="fade-up">Більше інформації</h4>
 
-                <div className={styles.wrap}>
+                <div className={styles.wrap} data-aos="fade-up" data-aos-delay="100">
                     {FaqData.map((item, i) => {
                         const isOpen = openIndex === i;
 

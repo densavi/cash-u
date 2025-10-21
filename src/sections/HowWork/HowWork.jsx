@@ -1,5 +1,6 @@
 "use client";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import styles from './HowWork.module.css';
 import Heading from "@/components/Heading/Heading";
 import Link from "next/link";
@@ -162,7 +163,7 @@ export default function HowWork() {
         <section ref={sectionRef} className={styles.howWork}>
             <div className="container">
                 <Heading imageSrc="/images/PuzzlePiece.svg" title="CASH-U – це інноваційна платформа"/>
-                <h4 className={`${styles.title} title`}>Як працює наш маркетплейс?</h4>
+                <h4 className={`${styles.title} title`} data-aos="fade-up">Як працює наш маркетплейс?</h4>
             </div>
             <div className={styles.container}>
 
@@ -199,6 +200,8 @@ export default function HowWork() {
                             key={index} 
                             ref={(el) => itemRefs.current[index] = el}
                             className={styles.item}
+                            data-aos="fade-up"
+                            data-aos-delay={index * 100}
                         >
                             <div className={styles.content}>
                                 <h5 className={styles.heading}>{ item.title }</h5>
@@ -210,7 +213,7 @@ export default function HowWork() {
             </div>
             <div className="container">
                 <div className={styles.button}>
-                    <Link href="#" className="btn btn-purple btn-lg">
+                    <Link href="#" className="btn btn-purple btn-lg" data-aos="fade-up" data-aos-delay="200">
                         Стати партнером
                     </Link>
                 </div>

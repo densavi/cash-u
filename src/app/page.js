@@ -69,6 +69,7 @@ export default function Home() {
         buttonText: 'Зареєструватися',
         buttonLink: '#',
         // background: '/images/for-clients-bg.png',
+        id: 'clients',
     }
 
     return (

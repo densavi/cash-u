@@ -9,7 +9,10 @@ import Link from "next/link";
 export default function ForClients({sectionData}) {
 
     return (
-        <section className={styles.forClients}>
+        <section
+            className={styles.forClients}
+            {...(sectionData.id ? { id: sectionData.id } : {})}
+        >
             <div className="container">
                 <Heading imageSrc={sectionData.headingIcon}
                          title={sectionData.headingText} />

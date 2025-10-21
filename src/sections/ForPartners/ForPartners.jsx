@@ -43,7 +43,7 @@ export default function ForPartners() {
 
 
     return (
-        <section className={styles.forPartners}>
+        <section className={styles.forPartners} id="partners">
             <div className={`${styles.container} container`}>
                 <div className={styles.wrap}>
                     <div className={styles.sectionInfo}>

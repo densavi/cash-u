@@ -1,4 +1,6 @@
 'use client';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Masonry from "react-masonry-css";
 import { useRef, useCallback, useEffect } from "react";
 
@@ -216,9 +218,9 @@ export default function Reviews() {
     return (
         <section className={styles.reviews}>
             <div className="container">
-                <h4 className={`${styles.title} title`}>Що кажуть наші клієнти</h4>
+                <h4 className={`${styles.title} title`} data-aos="fade-up">Що кажуть наші клієнти</h4>
                 <div className={styles.shadow}>
-                    <div className={styles.wrapper} ref={wrapperRef}>
+                    <div className={styles.wrapper} ref={wrapperRef} data-aos="fade-up" data-aos-delay="100">
                         <Masonry
                             breakpointCols={breakpointColumnsObj}
                             className={styles.masonryGrid}
