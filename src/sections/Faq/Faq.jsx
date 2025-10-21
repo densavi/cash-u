@@ -9,29 +9,14 @@ import Link from "next/link";
 
 export default function Faq() {
     const [openIndex, setOpenIndex] = useState(null);
-    const meteorRef = useRef(null);
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
-            if (!meteorRef.current) return;
-
-            const { clientY } = e;
-            const { innerHeight } = window;
-
-            // Вычисляем относительную координату мыши по Y (от -1 до 1)
-            const y = (clientY / innerHeight) * 2 - 1;
-
-            // Применяем движение только по вертикали
-            const moveY = y * 4; // 4px максимальное движение по Y
-
-            meteorRef.current.style.transform = `translateY(${moveY}px)`;
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
+        // Инициализация AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
     }, []);
 
     const FaqData = [
@@ -94,7 +79,7 @@ export default function Faq() {
                 </div>
             </div>
 
-            <div ref={meteorRef} className={styles.meteor}></div>
+            <div className={styles.meteor}></div>
             <div className={styles.faqBlur}></div>
         </section>
     );

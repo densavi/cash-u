@@ -16,6 +16,7 @@
     pointer-events: none;
     height: 758px;
     will-change: transform;
+    animation: levitation 5s ease-in-out infinite;
     @media (max-width: 768px) {
         display: none;
     }
@@ -188,4 +189,16 @@
     left: 0;
     z-index: -2;
     pointer-events: none;
+}
+
+@keyframes levitation {
+    0% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) translateX(6px) rotate(1deg);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
 }

@@ -126,8 +126,6 @@ export default function MarketplaceExchangers() {
             let planetOffsetX = ((clientX - centerX) / centerX) * maxOffset;
             let planetOffsetY = ((clientY - centerY) / centerY) * maxOffset;
 
-            planetOffsetX = Math.min(planetOffsetX, 0);
-
             const damping = 0.05;
             lastPosition.current.planetX += (planetOffsetX - lastPosition.current.planetX) * damping;
             lastPosition.current.planetY += (planetOffsetY - lastPosition.current.planetY) * damping;

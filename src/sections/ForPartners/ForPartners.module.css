@@ -2,6 +2,12 @@
     padding-bottom: 150px;
     position: relative;
     overflow: visible;
+    
+}
+
+.container {
+    position: relative;
+    z-index: 2;
 }
 
 .meteor {
@@ -13,6 +19,7 @@
     width: 100%;
     z-index: 0;
     pointer-events: none;
+    animation: levitation 5s ease-in-out infinite;
     @media (max-width: 1023px) {
         top: auto;
         bottom: -108px;
@@ -185,5 +192,17 @@
     z-index: 0;
     @media (max-width: 1023px) {
         display: none;
+    }
+}
+
+@keyframes levitation {
+    0% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) translateX(6px) rotate(1deg);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
     }
 }

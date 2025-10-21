@@ -12,45 +12,13 @@ import Image from "next/image";
 export default function ForPartners() {
 
 
-    const meteorRef = useRef(null);
-    const lastPosition = useRef({ meteorX: 0, meteorY: 0 });
-    const scrollPosition = useRef({ meteorScrollY: 0 });
-
     useEffect(() => {
-        const updateTransforms = () => {
-            const meteorRotate = lastPosition.current.meteorX / 4;
-
-            if (meteorRef.current) {
-                meteorRef.current.style.transform = `translate(${lastPosition.current.meteorX}px, ${lastPosition.current.meteorY + scrollPosition.current.meteorScrollY}px) rotate(${meteorRotate}deg)`;
-            }
-        };
-
-        const handleMouseMove = (e) => {
-            const { clientX, clientY } = e;
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-
-            const maxOffset = 5;
-            let meteorOffsetX = ((clientX - centerX) / centerX) * maxOffset;
-            let meteorOffsetY = ((clientY - centerY) / centerY) * maxOffset;
-
-            meteorOffsetX = Math.max(meteorOffsetX, 0);
-
-            const damping = 0.05;
-            lastPosition.current.meteorX += (meteorOffsetX - lastPosition.current.meteorX) * damping;
-            lastPosition.current.meteorY += (meteorOffsetY - lastPosition.current.meteorY) * damping;
-
-            lastPosition.current.meteorX = Number(lastPosition.current.meteorX.toFixed(2));
-            lastPosition.current.meteorY = Number(lastPosition.current.meteorY.toFixed(2));
-
-            updateTransforms();
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
+        // Инициализация AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
     }, []);
 
 
@@ -76,7 +44,7 @@ export default function ForPartners() {
 
     return (
         <section className={styles.forPartners}>
-            <div className="container">
+            <div className={`${styles.container} container`}>
                 <div className={styles.wrap}>
                     <div className={styles.sectionInfo}>
                         <Heading
@@ -115,7 +83,7 @@ export default function ForPartners() {
                     </div>
                 </div>
             </div>
-            <div ref={meteorRef} className={styles.meteor}></div>
+            <div className={styles.meteor}></div>
             <div className={styles.forPartnersBlur}></div>
         </section>
     )
