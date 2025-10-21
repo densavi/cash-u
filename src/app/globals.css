@@ -227,6 +227,7 @@ img {
 
 .lang-select__control {
     min-height: 40px !important;
+    z-index: 1 !important;
 }
 
 .lang-select__value-container {
@@ -276,6 +277,7 @@ img {
     box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.05) !important;
     -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.05) !important;
     -moz-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.05) !important;
+    z-index: 9999 !important;
 }
 
 .lang-select__menu-list {
@@ -339,8 +341,8 @@ img {
     background: url('/images/planet.png') no-repeat left;
     top: 40%;
     pointer-events: none;
-    /* transition: transform 0.1s ease-out; */
     will-change: transform;
+    animation: levitation 6s ease-in-out infinite;
 
     @media (max-width: 768px) {
         background: url('/images/planet-mobile.png') no-repeat right;
@@ -355,11 +357,45 @@ img {
 
 .sections-bg {
     width: 100%;
-    z-index: -2;
-    background: url('/images/for-clients-bg.png') center center / cover no-repeat;
+    background: url(/images/for-clients-bg.png) center top 120px / cover no-repeat;
+    background-size: 100% auto;
+
+    @media (max-width: 1930px) {
+        background-size: 1920px auto;
+        background: url(/images/for-clients-bg.png) center -150px / cover no-repeat;
+    }
 
     @media (max-width: 839px) {
         background-position: 40% 41%;
         background-size: contain;
     }
+}
+
+@keyframes levitation {
+    0% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) translateX(-8px) rotate(-0.5deg);
+    }
+    50% {
+        transform: translateY(-20px) translateX(-5px) rotate(-1deg);
+    }
+    75% {
+        transform: translateY(-10px) translateX(-12px) rotate(-0.5deg);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+}
+
+.lang-select__control--menu-is-open {
+    .lang-select__indicator {
+        transform: rotate(180deg);
+    }
+}
+
+/* Z-index для react-select портала */
+.lang-select__menu-portal {
+    z-index: 9999 !important;
 }

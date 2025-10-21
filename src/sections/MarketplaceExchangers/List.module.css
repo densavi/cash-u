@@ -173,7 +173,7 @@
 }
 
 .tab {
-    height: 302px;
+    height: 272px;
     overflow: auto;
     position: relative;
     overscroll-behavior: contain;

@@ -13,21 +13,6 @@ export default function Home() {
     const scale = useRef(1);
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
-            if (!planetRef.current) return;
-
-            const { clientX, clientY } = e;
-            const { innerWidth, innerHeight } = window;
-
-            const x = (clientX / innerWidth) * 2 - 1;
-            const y = (clientY / innerHeight) * 2 - 1;
-
-            const shakeX = Math.min(x * 3, 0); 
-            const shakeY = y * 2; 
-
-            planetRef.current.style.transform = `translate(${shakeX}px, ${shakeY}px)`;
-        };
-
         const handleScroll = () => {
             if (!footerBgRef.current) return;
 
@@ -48,11 +33,9 @@ export default function Home() {
             lastScrollY.current = currentScrollY;
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);

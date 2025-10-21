@@ -164,8 +164,8 @@ export default function MarketplaceExchangers() {
     return (
         <section className={styles.MarketplaceExchangers}>
             <div className={styles.container}>
-                <h1 className={`${styles.title}`}><span data-aos="zoom-in">Фінансовий маркетплейс</span></h1>
-                <p className={styles.description} data-aos="zoom-in" data-aos-delay="100">Перший маркетплейс з гнучким валюто-та крипто-обміном з надійними обмінниками</p>
+                <h1 className={`${styles.title}`}><span data-aos="fade-up">Фінансовий маркетплейс</span></h1>
+                <p className={styles.description} data-aos="fade-up" data-aos-delay="100">Перший маркетплейс з гнучким валюто-та крипто-обміном з надійними обмінниками</p>
 
                 <div className={styles.wrapper}>
                     <Filter />
