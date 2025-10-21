@@ -5,98 +5,67 @@ import styles from './Preloader.module.css';
 
 export default function Preloader() {
     const [progress, setProgress] = useState(0);
+    const [showText, setShowText] = useState(true);
+    const [showLogo, setShowLogo] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
-    const [shouldRender, setShouldRender] = useState(true);
-    const [animationStarted, setAnimationStarted] = useState(false);
+    const [shouldHide, setShouldHide] = useState(false);
 
     useEffect(() => {
-        // Небольшая задержка чтобы синхронизировать старт анимации планеты и прогресса
-        const startDelay = setTimeout(() => {
-            setAnimationStarted(true);
-        }, 50);
-
-        return () => clearTimeout(startDelay);
-    }, []);
-
-    useEffect(() => {
-        if (!animationStarted) return;
-
-        const duration = 1500;
-        const interval = 30;
-        const increment = 100 / (duration / interval);
-        
-        const timer = setInterval(() => {
+        // Анимация процентов от 0 до 100
+        const progressInterval = setInterval(() => {
             setProgress(prev => {
                 if (prev >= 100) {
-                    clearInterval(timer);
-                    setTimeout(() => {
-                        setIsVisible(false);
-                        setTimeout(() => {
-                            setShouldRender(false);
-                        }, 500);
-                    }, 500);
+                    clearInterval(progressInterval);
                     return 100;
                 }
-                return Math.min(prev + increment, 100);
+                return prev + 2;
             });
-        }, interval);
+        }, 60);
+
+        // Показываем логотип на 80% и скрываем текст
+        const logoTimeout = setTimeout(() => {
+            setShowText(false);
+            setShowLogo(true);
+        }, 2400);
+
+        // Начинаем скрывать прелоадер
+        const hideTimeout = setTimeout(() => {
+            setShouldHide(true);
+            // Полностью удаляем через время анимации
+            setTimeout(() => {
+                setIsVisible(false);
+            }, 800); // Время анимации исчезновения
+        }, 3500);
 
         return () => {
-            clearInterval(timer);
+            clearInterval(progressInterval);
+            clearTimeout(logoTimeout);
+            clearTimeout(hideTimeout);
         };
-    }, [animationStarted]);
-    
-    if (!shouldRender) return null;
+    }, []);
+
+    if (!isVisible) {
+        return null;
+    }
 
     return (
-        <div className={`${styles.preloader} ${!isVisible ? styles.fadeOut : ''}`}>
-            <img className={`${styles.planet} ${animationStarted ? styles.planetGrow : ''}`} src="/images/preloader-planet.png" alt="preloader" />
-            <img className={`${styles.blur} ${styles.blur1}`} src="/images/preloader-blur.png" alt="" />
-            <img className={`${styles.blur} ${styles.blur2}`} src="/images/preloader-blur.png" alt="" />
-            <div className={styles.marquee}>
-                <div className={styles.marqueeContent}>
-                    <div className={styles.textItem}>
-                        <img src="/images/Cash-U-Logo.svg" alt="" />
-                    </div>
-                    <div className={styles.textItem}>
-                        <img src="/images/Cash-U-Logo.svg" alt="" />
-                    </div>
-                    <div className={styles.textItem}>
-                        <img src="/images/Cash-U-Logo.svg" alt="" />
-                    </div>
-                    <div className={styles.textItem}>
-                        <img src="/images/Cash-U-Logo.svg" alt="" />
-                    </div>
-                    <div className={styles.textItem}>
-                        <img src="/images/Cash-U-Logo.svg" alt="" />
-                    </div>
-                    <div className={styles.textItem}>
-                        <img src="/images/Cash-U-Logo.svg" alt="" />
-                    </div>
-                    <div className={styles.textItem}>
-                        <img src="/images/Cash-U-Logo.svg" alt="" />
-                    </div>
-                    <div className={styles.textItem}>
-                        <img src="/images/Cash-U-Logo.svg" alt="" />
-                    </div>
-                    <div className={styles.textItem}>
-                        <img src="/images/Cash-U-Logo.svg" alt="" />
-                    </div>
-                </div>
+        <div className={`${styles.preloader} ${shouldHide ? styles.preloaderHidden : ''}`}>
+            <div className={styles.lineTop}></div>
+            <div className={styles.lineMiddle}></div>
+            <div className={styles.lineBottom}></div>
+            
+            <div className={`${styles.preloaderText} ${showText ? styles.textVisible : styles.textHidden}`}>
+                Ще один обмінник, але...
             </div>
+            
+            <img 
+                src="/images/preloader-logo.svg" 
+                alt="logo" 
+                className={`${styles.preloaderLogo} ${showLogo ? styles.logoVisible : styles.logoHidden}`} 
+            />
 
-            <div className={styles.loading}>
-                <div className="container">
-                    <div className={styles.rercents}>{Math.round(progress)}%</div>
-                    <div className={styles.progress}>
-                        <div className={styles.bg}>
-                            <div 
-                                className={styles.progressBar}
-                                style={{ width: `${progress}%` }}
-                            ></div>
-                        </div>
-                    </div>
-                </div>
+            <div className={styles.percent}>
+                {progress}%
             </div>
         </div>
     )

@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
                         {children}
                     </div>
                     <Footer />
-                    {/* <Preloader /> */}
+                    <Preloader />
                 </LenisProvider>
             </body>
         </html>
