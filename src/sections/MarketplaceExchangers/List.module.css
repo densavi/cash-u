@@ -3,8 +3,34 @@
     border-radius: 28px;
     padding: 8px;
     flex: 1;
-    background: rgba(255,255,255,.3);
+    background: rgba(255, 255, 255, .3);
     backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.blurLeft,
+.blurRight {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
+.blurLeft {
+    background: url('/images/list-blur-bottom.png') left bottom no-repeat;
+    height: 485px;
+    bottom: -100px;
+    left: -100px;
+}
+
+.blurRight {
+    background: url('/images/list-blur-top.png') right top no-repeat;
+    top: -214px;
+    right: -522px;
+    height: 718px;
 }
 
 .wrapper {
@@ -14,6 +40,7 @@
     padding-top: 20px;
     height: 100%;
     overflow: hidden;
+
     @media (max-width: 768px) {
         padding: 16px 0;
     }
@@ -26,6 +53,7 @@
     padding-left: 20px;
     padding-right: 42px;
     margin-bottom: 24px;
+
     @media (max-width: 768px) {
         padding-left: 16px;
         padding-right: 20px;
@@ -87,8 +115,10 @@
     padding: 0 20px;
     height: 60px;
     transition: background .5s ease;
+
     &:hover {
         background: #F4F4F4;
+
         .button {
             a {
                 background: #fff;
@@ -115,6 +145,7 @@
 
 .rate {
     width: 110px;
+
     @media (max-width: 1160px) {
         width: 80px;
     }
@@ -128,6 +159,7 @@
     text-overflow: ellipsis;
     width: 209px;
     padding-right: 15px;
+
     @media (max-width: 1160px) {
         width: 150px;
     }
@@ -145,6 +177,7 @@
     overflow: auto;
     position: relative;
     overscroll-behavior: contain;
+
     @media (max-width: 740px) {
         display: none;
     }
@@ -152,6 +185,7 @@
 
 .tabsWrapper {
     position: relative;
+
     &:before {
         content: '';
         position: absolute;
@@ -163,6 +197,7 @@
         background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
         z-index: 2;
         pointer-events: none;
+
         @media (max-width: 768px) {
             display: none;
         }
@@ -172,9 +207,11 @@
 .th {
     height: auto;
     margin-bottom: 5px;
+
     @media (max-width: 768px) {
         display: none;
     }
+
     &:hover {
         background: transparent;
     }
@@ -189,6 +226,7 @@
 
 .tabMobile {
     display: none;
+
     @media (max-width: 740px) {
         display: grid;
         gap: 16px;
@@ -201,6 +239,7 @@
     grid-template-columns: 1fr 160px;
     gap: 16px;
     padding: 0 16px;
+
     @media (max-width: 360px) {
         grid-template-columns: 1fr 140px;
         gap: 4px;
@@ -214,6 +253,7 @@
 .logoMobile {
     width: 60px;
     max-height: 60px;
+
     img {
         object-fit: contain;
         display: flex;
@@ -239,6 +279,7 @@
     display: grid;
     grid-template-columns: 64px 1fr;
     gap: 10px;
+
     @media (max-width: 360px) {
         grid-template-columns: 50px 1fr;
         gap: 5px;

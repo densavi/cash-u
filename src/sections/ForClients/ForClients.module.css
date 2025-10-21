@@ -1,6 +1,7 @@
 .forClients {
     padding-bottom: 150px;
     position: relative;
+    overflow: hidden;
 }
 
 .title {
@@ -137,25 +138,7 @@
     }
 }
 
-.bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-height: inherit;
-    z-index: -1;
 
-    @media (max-width: 839px) {
-        max-width: inherit;
-        width: 100%;
-        height: 559px;
-        object-fit: cover;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -14%;
-        top: auto;
-    }
-}
 
 .iconNumber {
     background: linear-gradient(188.89deg, #202028 17.6%, rgba(32, 32, 32, 0) 108.83%);

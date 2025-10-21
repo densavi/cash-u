@@ -3,6 +3,9 @@
 import { useState } from "react";
 import styles from "./Filter.module.css";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function Filter() {
     const [country, setCountry] = useState("");
     const [city, setCity] = useState("");
@@ -10,7 +13,7 @@ export default function Filter() {
     const [currency, setCurrency] = useState("");
     const [currency2, setCurrency2] = useState("");
     return (
-        <div className={styles.filter}>
+        <div className={styles.filter} data-aos="fade-right">
             <div className={styles.wrapper}>
                 <div className={`${styles.filterSelect} ${styles.mb16}`}>
                     <label htmlFor="city">Країна</label>

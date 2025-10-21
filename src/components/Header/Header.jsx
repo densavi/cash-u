@@ -68,16 +68,11 @@ export default function Header() {
                                 </>
                             ) : (
                                 <div className={styles.login}>
-                                    <select className={styles.lang} defaultValue="ua">
-                                        <option value="ua">Укр</option>
-                                        <option value="en">End</option>
-                                    </select>
                                     <Select 
                                     options={langs} 
                                     defaultValue={langs[0]} 
                                     className={styles.langSelect} 
                                     classNamePrefix="lang-select"
-                                    menuIsOpen={true}
                                     />
                                     <Link className="btn" href="/">Увійти</Link>
                                     <Link className="btn btn-purple" href="/">Зареєструватися</Link>

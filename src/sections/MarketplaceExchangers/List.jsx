@@ -1,6 +1,7 @@
 'use client'
 import {useState, useRef, useCallback, useEffect} from 'react';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Image from "next/image";
 import Link from "next/link";
 import StarRating from "@/components/StarRating";
@@ -76,7 +77,7 @@ export default function List({FiatList, CryptoList}) {
 
     return (
         <>
-            <div className={styles.list}>
+            <div className={styles.list} data-aos="fade-left">
                 <div className={styles.wrapper}>
                     <div className={styles.head}>
                         <ul className={styles.tabs}>
@@ -283,6 +284,10 @@ export default function List({FiatList, CryptoList}) {
                     </div>
 
                 </div>
+
+                <div className={styles.blurLeft}></div>
+                <div className={styles.blurRight}></div>
+
             </div>
             <MapModal isOpen={isMapOpen} onRequestClose={() => setIsMapOpen(false)}>
                 <MapModalContent onClose={() => setIsMapOpen(false)} />

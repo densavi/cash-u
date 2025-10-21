@@ -1,8 +1,10 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import styles from "./ForClients.module.css";
 import Heading from "@/components/Heading/Heading";
 
 import Link from "next/link";
-import Image from "next/image";
 
 export default function ForClients({sectionData}) {
 
@@ -11,13 +13,13 @@ export default function ForClients({sectionData}) {
             <div className="container">
                 <Heading imageSrc={sectionData.headingIcon}
                          title={sectionData.headingText} />
-                <h3 className={`${styles.title}`}>
+                <h3 className={`${styles.title}`} data-aos="fade-up">
                     {sectionData.title}
                 </h3>
 
                 <div className={styles.wrap}>
                     {sectionData.list.map((item, i) => (
-                        <div key={i} className={styles.item}>
+                        <div key={i} className={styles.item} data-aos="fade-up" data-aos-delay={i * 100}>
                             <div className={styles.content}>
                                 {item.icon ? (
                                     <div className={styles.icon}>
@@ -42,7 +44,7 @@ export default function ForClients({sectionData}) {
                 </div>
 
                 {sectionData.buttonLink && (
-                    <div className={styles.button}>
+                    <div className={styles.button} data-aos="fade-up" data-aos-delay="200">
                         <Link href={sectionData.buttonLink} className="btn btn-purple btn-lg">
                             {sectionData.buttonText}
                         </Link>
@@ -50,9 +52,6 @@ export default function ForClients({sectionData}) {
                 )}
 
             </div>
-            {sectionData.background && (
-                <img className={styles.bg} src={sectionData.background} alt=""/>
-            )}
         </section>
     )
 }

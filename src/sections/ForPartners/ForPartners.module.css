@@ -11,7 +11,7 @@
     background: url('/images/for-partners-bg.png') left no-repeat;
     height: 803px;
     width: 100%;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
     @media (max-width: 1023px) {
         top: auto;
@@ -172,5 +172,18 @@
     top: 100px;
     @media (max-width: 1023px) {
         position: static;
+    }
+}
+
+.forPartnersBlur {
+    position: absolute;
+    background: url('/images/partners-blur-2.png') left bottom / contain no-repeat;
+    width: 100%;
+    height: 1075px;
+    bottom: -300px;
+    left: 0;
+    z-index: 0;
+    @media (max-width: 1023px) {
+        display: none;
     }
 }

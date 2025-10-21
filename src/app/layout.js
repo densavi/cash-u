@@ -3,7 +3,6 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import LenisProvider from "@/hooks/LenisProvider";
 import Preloader from "@/components/Preloader/Preloader";
-
 export const metadata = {
     title: "Cash-U",
     description: "Маркетплейс обмінників",

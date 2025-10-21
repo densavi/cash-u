@@ -4,6 +4,8 @@
     border-radius: 28px;
     background: rgba(255,255,255,.3);
     backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
     @media (max-width: 768px) {
         margin-bottom: 10px;
     }

@@ -1,9 +1,11 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import styles from "./MarketplaceExchangers.module.css";
-import Heading from "@/components/Heading/Heading";
 import Filter from "./Filter";
 import List from "./List";
+
 
 export default function MarketplaceExchangers() {
 
@@ -99,6 +101,13 @@ export default function MarketplaceExchangers() {
     ]
 
     useEffect(() => {
+        // Инициализация AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
         const updateTransforms = () => {
             const planetScale = 1 + Math.abs(lastPosition.current.planetX) / 200;
 
@@ -157,9 +166,8 @@ export default function MarketplaceExchangers() {
     return (
         <section className={styles.MarketplaceExchangers}>
             <div className={styles.container}>
-                <Heading title={<>рейтинг від <span>2,000+</span> клієнтів</>} iconText="4.9" imageSrc="images/star.svg" />
-                <h1 className={`${styles.title}`}><span>Маркетплейс обмінників</span></h1>
-                <p className={styles.description}>Перший маркетплейс з гнучким валюто-та крипто-обміном з надійними обмінниками</p>
+                <h1 className={`${styles.title}`}><span data-aos="zoom-in">Фінансовий маркетплейс</span></h1>
+                <p className={styles.description} data-aos="zoom-in" data-aos-delay="100">Перший маркетплейс з гнучким валюто-та крипто-обміном з надійними обмінниками</p>
 
                 <div className={styles.wrapper}>
                     <Filter />
@@ -171,7 +179,10 @@ export default function MarketplaceExchangers() {
 
             </div>
 
-            <div ref={planetRef} className={styles.planet}></div>
+            
+            {/* <div className={styles.planetVideo}>
+                <video src="/video/planet.mp4" autoPlay muted loop />
+            </div> */}
             <div className={styles.meteor}></div>
 
         </section>

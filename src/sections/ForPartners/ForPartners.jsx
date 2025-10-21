@@ -1,5 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import styles from "./ForPartners.module.css";
 import Heading from "@/components/Heading/Heading";
@@ -82,14 +84,14 @@ export default function ForPartners() {
                             imageSrc="/images/Lightning.svg"
                             className={styles.headingAlign}
                         />
-                        <h3 className={`${styles.title}`}>Партнерам</h3>
+                        <h3 className={`${styles.title}`} data-aos="fade-up">Партнерам</h3>
                     </div>
                     <div className={styles.list} >
                         {ForPartnersList.map((item, i) => (
                             <div
                                 key={i}
                                 className={styles.item}
-
+                                data-aos="fade-up" data-aos-delay={i * 100}
                             >
                                 <div className={styles.content}>
                                     <div className={styles.info}>
@@ -114,6 +116,7 @@ export default function ForPartners() {
                 </div>
             </div>
             <div ref={meteorRef} className={styles.meteor}></div>
+            <div className={styles.forPartnersBlur}></div>
         </section>
     )
 }
