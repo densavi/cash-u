@@ -1,7 +1,5 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import styles from "./MarketplaceExchangers.module.css";
 import Filter from "./Filter";
 import List from "./List";
@@ -101,13 +99,6 @@ export default function MarketplaceExchangers() {
     ]
 
     useEffect(() => {
-        // Инициализация AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-
         const updateTransforms = () => {
             const planetScale = 1 + Math.abs(lastPosition.current.planetX) / 200;
 

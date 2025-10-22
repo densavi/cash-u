@@ -64,6 +64,12 @@
     background: rgba(255,255,255,.3);
     backdrop-filter: blur(10px);
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .content {
@@ -96,7 +102,7 @@
     line-height: 1.2;
     opacity: .6;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     @media (max-width: 768px) {
         font-size: 14px;
         margin-top: 15px;
@@ -105,7 +111,7 @@
 
 .answerContent {
     padding-top: 15px;
-    transition: all 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .sign {
@@ -117,7 +123,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background .5s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: 0px 0px 12px 1px rgba(152,133,255,1) inset;
     @media (max-width: 768px) {
         width: 34px;
@@ -138,7 +144,7 @@
             content: '';
             position: absolute;
             background: #fff;
-            transition: all .5s ease;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         &:before {
             width: 100%;

@@ -1,7 +1,5 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import styles from "./ForPartners.module.css";
 import Heading from "@/components/Heading/Heading";
@@ -12,14 +10,6 @@ import Image from "next/image";
 export default function ForPartners() {
 
 
-    useEffect(() => {
-        // Инициализация AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-    }, []);
 
 
 

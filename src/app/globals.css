@@ -3,6 +3,11 @@
     --foreground: #171717;
 }
 
+/* Якорные ссылки - поднимаем на 100px выше */
+html {
+    scroll-padding-top: 100px;
+}
+
 /* Disabled to avoid conflicts with Lenis */
 /* html {
     scroll-behavior: smooth;
@@ -364,6 +369,10 @@ img {
     @media (max-width: 1930px) {
         background-size: 1920px auto;
         background: url(/images/for-clients-bg.png) center -150px / cover no-repeat;
+    }
+
+    @media (max-width: 1440px) {
+        background: url(/images/for-clients-bg.png) center 150px / contain no-repeat;
     }
 
     @media (max-width: 839px) {

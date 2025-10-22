@@ -104,12 +104,30 @@
 /* Анимация появления текста */
 .textVisible {
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transform: translateY(0);
+    transition: all 0.8s ease;
+    animation: textFadeIn 1s ease-out;
 }
 
 .textHidden {
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+}
+
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(10px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .preloaderLogo {
@@ -129,13 +147,13 @@
 .logoHidden {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.1) rotate(0deg);
-    transition: all 0.8s ease;
+    transition: all 1.2s ease;
 }
 
 .logoVisible {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1) rotate(330deg);
-    transition: all 0.8s ease;
+    transition: all 1.2s ease;
 }
 
 .percent {

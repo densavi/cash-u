@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePreloader } from '@/contexts/PreloaderContext';
 import styles from './Preloader.module.css';
 
 export default function Preloader() {
@@ -9,6 +10,7 @@ export default function Preloader() {
     const [showLogo, setShowLogo] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [shouldHide, setShouldHide] = useState(false);
+    const { hidePreloader } = usePreloader();
 
     useEffect(() => {
         // Анимация процентов от 0 до 100
@@ -31,6 +33,7 @@ export default function Preloader() {
         // Начинаем скрывать прелоадер
         const hideTimeout = setTimeout(() => {
             setShouldHide(true);
+            hidePreloader(); // Уведомляем контекст о скрытии прелоадера
             // Полностью удаляем через время анимации
             setTimeout(() => {
                 setIsVisible(false);

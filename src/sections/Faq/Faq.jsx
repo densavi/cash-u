@@ -55,9 +55,10 @@ export default function Faq() {
                                     </div>
 
                                     <div className={styles.answer} style={{
-                                        maxHeight: isOpen ? 'none' : '0',
+                                        maxHeight: isOpen ? '500px' : '0',
                                         opacity: isOpen ? 1 : 0,
-                                        paddingTop: isOpen ? '15px' : '0'
+                                        paddingTop: isOpen ? '15px' : '0',
+                                        transform: isOpen ? 'translateY(0)' : 'translateY(-10px)'
                                     }}>
                                         <div className={styles.answerContent}>
                                             {item.answer}
