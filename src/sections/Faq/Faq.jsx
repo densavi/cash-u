@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -9,10 +9,27 @@ import Link from "next/link";
 
 export default function Faq() {
     const [openIndex, setOpenIndex] = useState(null);
+    const [heights, setHeights] = useState({});
+    const answerRefs = useRef({});
 
     const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
+        if (openIndex === index) {
+            setOpenIndex(null);
+        } else {
+            setOpenIndex(index);
+        }
     };
+
+    useEffect(() => {
+        // Измеряем высоту каждого ответа
+        const newHeights = {};
+        Object.keys(answerRefs.current).forEach(key => {
+            if (answerRefs.current[key]) {
+                newHeights[key] = answerRefs.current[key].scrollHeight;
+            }
+        });
+        setHeights(newHeights);
+    }, []);
 
     const FaqData = [
         {
@@ -54,8 +71,17 @@ export default function Faq() {
                                         </div>
                                     </div>
 
-                                    <div className={`${styles.answer} ${isOpen ? styles.answerOpen : ''}`}>
-                                        <div className={styles.answerContent}>
+                                    <div 
+                                        className={styles.answer}
+                                        style={{
+                                            height: isOpen ? `${heights[i] || 0}px` : '0px',
+                                            opacity: isOpen ? 1 : 0
+                                        }}
+                                    >
+                                        <div 
+                                            ref={el => answerRefs.current[i] = el}
+                                            className={styles.answerContent}
+                                        >
                                             {item.answer}
                                         </div>
                                     </div>

@@ -375,14 +375,14 @@ img {
 
     @media (max-width: 1930px) {
         background-size: 1920px auto;
-        background: url(/images/for-clients-bg.png) center -150px / cover no-repeat;
+        background: url(/images/for-clients-bg.png) center 0 / contain no-repeat;
     }
 
-    @media (max-width: 1440px) {
-        background: url(/images/for-clients-bg.png) center 150px / contain no-repeat;
+    @media (max-width: 1450px) {
+        background: url(/images/for-clients-bg.png) 50% 0px / contain no-repeat;
     }
 
-    @media (max-width: 839px) {
+    @media (max-width: 1023px) {
         background-position: 40% 41%;
         background-size: contain;
     }
