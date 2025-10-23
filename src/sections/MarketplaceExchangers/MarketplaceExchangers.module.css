@@ -19,7 +19,7 @@
         top: 10%;
         z-index: -1;
         pointer-events: none;
-        animation: levitation 2s ease-in-out infinite;
+        animation: meteorDynamic 6s ease-in-out infinite;
         @media (max-width: 768px) {
             background: url('/images/meteor-mobile.png') no-repeat left;
             height: 407px;
@@ -82,14 +82,14 @@
     }
 }
 
-@keyframes levitation {
+@keyframes meteorDynamic {
     0% {
-        transform: translateY(0px);
+        transform: translateY(0px) translateX(0px);
     }
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-60px) translateX(20px);
     }
     100% {
-        transform: translateY(0px);
+        transform: translateY(0px) translateX(0px);
     }
 }

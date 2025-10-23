@@ -134,12 +134,8 @@ export default function HowWork() {
             }
         };
 
-        sectionEl.addEventListener("mousemove", onMouseMove);
-        sectionEl.addEventListener("mouseleave", onMouseLeave);
-
+        // Убрано движение при движении мышки
         return () => {
-            sectionEl.removeEventListener("mousemove", onMouseMove);
-            sectionEl.removeEventListener("mouseleave", onMouseLeave);
             if (rafId) cancelAnimationFrame(rafId);
         };
     }, []);

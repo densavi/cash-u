@@ -89,8 +89,6 @@
         max-width: 343px;
         margin: 20px auto 0;
     }
-        position: static;
-        top: 300px;
 }
 
 .item {
@@ -197,12 +195,12 @@
 
 @keyframes levitation {
     0% {
-        transform: translateY(0px) translateX(0px) rotate(0deg);
+        transform: translateY(0px) translateX(0px);
     }
     50% {
-        transform: translateY(-15px) translateX(6px) rotate(1deg);
+        transform: translateY(-40px) translateX(-30px);
     }
     100% {
-        transform: translateY(0px) translateX(0px) rotate(0deg);
+        transform: translateY(0px) translateX(0px);
     }
 }

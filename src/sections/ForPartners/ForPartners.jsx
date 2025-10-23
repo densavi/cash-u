@@ -44,27 +44,30 @@ export default function ForPartners() {
                         />
                         <h3 className={`${styles.title}`} data-aos="fade-up">Партнерам</h3>
                     </div>
-                    <div className={styles.list} >
-                        {ForPartnersList.map((item, i) => (
-                            <div
-                                key={i}
-                                className={styles.item}
-                                data-aos="fade-up" data-aos-delay={i * 100}
-                            >
-                                <div className={styles.content}>
-                                    <div className={styles.info}>
-                                        <div className={`${styles.num}`}>{String(i + 1).padStart(2, '0')}</div>
-                                        <div>
-                                            <h4 className={`${styles.ttl}`}>{item.title}</h4>
-                                            <p className={styles.description}>{item.description}</p>
+                    <div className={styles.listWrapper}>
+                        <div className={styles.list} >
+                            {ForPartnersList.map((item, i) => (
+                                <div
+                                    key={i}
+                                    className={styles.item}
+                                    data-aos="fade-up" data-aos-delay={i * 100}
+                                >
+                                    <div className={styles.content}>
+                                        <div className={styles.info}>
+                                            <div className={`${styles.num}`}>{String(i + 1).padStart(2, '0')}</div>
+                                            <div>
+                                                <h4 className={`${styles.ttl}`}>{item.title}</h4>
+                                                <p className={styles.description}>{item.description}</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles.image}>
+                                            <Image src={item.image} alt={item.title} width={260} height={220} />
                                         </div>
                                     </div>
-                                    <div className={styles.image}>
-                                        <Image src={item.image} alt={item.title} width={260} height={220} />
-                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+
+                        </div>
                         <div className={styles.button}>
                             <Link href="#" className="btn btn-purple btn-fullwidth btn-lg">
                                 Зареєструватися

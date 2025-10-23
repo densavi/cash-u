@@ -60,7 +60,7 @@ body.lenis {
 
 html {
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -188,6 +188,12 @@ img {
 .footer-bg {
     position: relative;
     z-index: 1;
+    overflow: hidden;
+
+    @media (max-width: 970px) {
+        padding-bottom: 250px;
+        margin-bottom: -250px;
+    }
 
     .footer-bg__image {
         position: absolute;
@@ -210,7 +216,7 @@ img {
             height: 514px;
             object-fit: cover;
             top: auto;
-            bottom: -250px;
+            bottom: 0;
         }
     }
 }
@@ -224,7 +230,7 @@ img {
         transform-origin: center center;
 
         @media (max-width: 970px) {
-            top: auto;
+            top: 150px;
         }
     }
 }

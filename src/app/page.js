@@ -22,10 +22,10 @@ export default function Home() {
             // Определяем направление скролла
             if (scrollDelta > 0) {
                 // Скролл вниз - увеличиваем
-                scale.current = Math.min(scale.current + 0.0005, 1.03);
+                scale.current = Math.min(scale.current + 0.002, 1.5);
             } else if (scrollDelta < 0) {
                 // Скролл вверх - уменьшаем
-                scale.current = Math.max(scale.current - 0.0005, 1.0);
+                scale.current = Math.max(scale.current - 0.002, 1.0);
             }
 
             // Применяем масштабирование

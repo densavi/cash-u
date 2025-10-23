@@ -12,6 +12,7 @@
     z-index: -1;
     pointer-events: none;
     background: url('/images/how-work-left.png') 0 60px no-repeat;
+    animation: meteor1 6s ease-in-out infinite;
 
     @media (max-width: 768px) {
         display: none;
@@ -27,6 +28,7 @@
     z-index: -1;
     pointer-events: none;
     background: url('/images/how-works-right.png') right bottom -200px no-repeat;
+    animation: meteor2 6s ease-in-out infinite;
 
     @media (max-width: 768px) {
         display: none;
@@ -225,5 +227,35 @@
     span {
         background: #6335FC !important;
 
+    }
+}
+
+@keyframes meteor1 {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+    25% {
+        transform: translateY(-30px) translateX(20px);
+    }
+    50% {
+        transform: translateY(-20px) translateX(-15px);
+    }
+    75% {
+        transform: translateY(-40px) translateX(25px);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+}
+
+@keyframes meteor2 {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+    50% {
+        transform: translateY(-40px) translateX(30px);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px);
     }
 }
