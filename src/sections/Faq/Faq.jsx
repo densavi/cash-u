@@ -54,12 +54,7 @@ export default function Faq() {
                                         </div>
                                     </div>
 
-                                    <div className={styles.answer} style={{
-                                        opacity: isOpen ? 1 : 0,
-                                        height: isOpen ? 'auto' : '0',
-                                        paddingTop: isOpen ? '15px' : '0',
-                                        transform: isOpen ? 'translateY(0) scale(1)' : 'translateY(-20px) scale(0.95)'
-                                    }}>
+                                    <div className={`${styles.answer} ${isOpen ? styles.answerOpen : ''}`}>
                                         <div className={styles.answerContent}>
                                             {item.answer}
                                         </div>
