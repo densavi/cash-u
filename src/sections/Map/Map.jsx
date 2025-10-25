@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import styles from './Map.module.css';
 
-// Динамический импорт компонента карты только на клиенте
 const InteractiveMap = dynamic(() => import('./InteractiveMap'), {
   ssr: false,
   loading: () => (

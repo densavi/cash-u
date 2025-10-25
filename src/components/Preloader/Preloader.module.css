@@ -13,6 +13,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .preloaderHidden {
@@ -29,9 +31,11 @@
     height: 1289px;
     background: url('/images/preloader-line-top.png') no-repeat center center;
     animation: rotateClockwise 60s linear infinite;
+    z-index: 1;
     @media (max-width: 768px) {
         width: 734px;
         height: 734px;
+        background: url('/images/preloader-line-top-mobile.png') no-repeat center center;
     }
 }
 
@@ -44,9 +48,11 @@
     height: 1030px;
     background: url('/images/preloader-line-middle.png') no-repeat center center;
     animation: rotateCounterClockwise 45s linear infinite;
+    z-index: 2;
     @media (max-width: 768px) {
         width: 587px;
         height: 587px;
+        background: url('/images/preloader-line-middle-mobile.png') no-repeat center center;
     }
 }
 
@@ -59,9 +65,11 @@
     height: 773px;
     background: url('/images/preloader-line-bottom.png') no-repeat center center;
     animation: rotateClockwise 75s linear infinite;
+    z-index: 3;
     @media (max-width: 768px) {
         width: 440px;
         height: 440px;
+        background: url('/images/preloader-line-bottom-mobile.png') no-repeat center center;
     }
 }
 
@@ -89,11 +97,12 @@
 .preloaderText {
     font-size: 38px;
     font-weight: bold;
-    background: linear-gradient(91.74deg, #202020 1.47%, rgba(32, 32, 32, 0) 98.53%);
+    /* background: linear-gradient(91.74deg, #202020 1.47%, rgba(32, 32, 32, 0) 98.53%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
+    color: transparent; */
+    color: #202020;
     position: relative;
     z-index: 10;
     @media (max-width: 768px) {

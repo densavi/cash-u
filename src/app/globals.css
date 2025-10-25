@@ -355,12 +355,13 @@ img {
     top: 40%;
     pointer-events: none;
     will-change: transform;
-    animation: levitation 6s ease-in-out infinite;
+    animation: levitationDesktop 6s ease-in-out infinite;
 
     @media (max-width: 768px) {
         background: url('/images/planet-mobile.png') no-repeat right;
         height: 339px;
         top: 99px;
+        animation: levitationMobile 6s ease-in-out infinite;
     }
 }
 
@@ -388,7 +389,7 @@ img {
     }
 }
 
-@keyframes levitation {
+@keyframes levitationDesktop {
     0% {
         transform: translateY(0px) translateX(0px) rotate(0deg);
     }
@@ -403,6 +404,28 @@ img {
 
     75% {
         transform: translateY(-10px) translateX(-12px) rotate(-0.5deg);
+    }
+
+    100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+}
+
+@keyframes levitationMobile {
+    0% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-15px) translateX(8px) rotate(0.5deg);
+    }
+
+    50% {
+        transform: translateY(-20px) translateX(5px) rotate(1deg);
+    }
+
+    75% {
+        transform: translateY(-10px) translateX(12px) rotate(0.5deg);
     }
 
     100% {

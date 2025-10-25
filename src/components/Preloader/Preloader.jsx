@@ -13,6 +13,10 @@ export default function Preloader() {
     const { hidePreloader } = usePreloader();
 
     useEffect(() => {
+        // Блокируем скролл на body и html
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+
         // Анимация процентов от 0 до 100
         const progressInterval = setInterval(() => {
             setProgress(prev => {
@@ -37,6 +41,9 @@ export default function Preloader() {
             // Полностью удаляем через время анимации
             setTimeout(() => {
                 setIsVisible(false);
+                // Разблокируем скролл на body и html
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
             }, 800); // Время анимации исчезновения
         }, 3500);
 
@@ -44,6 +51,9 @@ export default function Preloader() {
             clearInterval(progressInterval);
             clearTimeout(logoTimeout);
             clearTimeout(hideTimeout);
+            // Убеждаемся, что скролл разблокирован при размонтировании
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         };
     }, []);
 
