@@ -8,7 +8,6 @@ import Partners from "@/sections/Partners/Partners";
 import HowWork from "@/sections/HowWork/HowWork";
 import Reviews from "@/sections/Reviews/Reviews";
 import Faq from "@/sections/Faq/Faq";
-import AOSClient from "./AOSClient";
 
 export default function JoinMarketplace() {
     const footerBgRef = useRef(null);
@@ -72,7 +71,6 @@ export default function JoinMarketplace() {
 
     return (
         <>
-            <AOSClient />
             <HeroSection />
             <ForClients sectionData={BenefitsData} />
             <Partners />
