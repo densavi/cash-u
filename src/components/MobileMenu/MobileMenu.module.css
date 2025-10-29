@@ -82,6 +82,11 @@
     gap: 8px;
 }
 
+.buttonsLoggedIn {
+    display: flex;
+    justify-content: center;
+}
+
 .buttons a {
     padding: 0;
 }
@@ -91,4 +96,10 @@
     width: 100%;
     height: 1px;
     background: #6E7C8A;
+}
+
+.foot {
+    display: flex;
+    align-items: center;
+    gap: 26px;
 }

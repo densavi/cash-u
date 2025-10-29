@@ -156,10 +156,10 @@ img {
     text-align: center;
     letter-spacing: -.5px;
     font-size: 56px;
-    background: linear-gradient(180.02deg, #202020 0.02%, rgba(32, 32, 32, 0) 137.97%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    /*background: linear-gradient(180.02deg, #202020 0.02%, rgba(32, 32, 32, 0) 137.97%);*/
+    /*-webkit-background-clip: text;*/
+    /*background-clip: text;*/
+    /*color: transparent;*/
 
     @media (max-width: 768px) {
         font-size: 38px;
@@ -442,4 +442,26 @@ img {
 /* Z-index для react-select портала */
 .lang-select__menu-portal {
     z-index: 9999 !important;
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #F4F4F4;
+    height: 40px;
+    padding: 0 20px !important;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all .5s ease;
+    svg {
+        width: 16px;
+        min-width: 16px;
+        height: 16px;
+    }
+    &:hover {
+        color: #fff;
+        background: #6335FC;
+    }
 }

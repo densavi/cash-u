@@ -25,7 +25,7 @@ export default function ForClients({sectionData}) {
                         <div key={i} className={styles.item} data-aos="fade-up" data-aos-delay={i * 100}>
                             <div className={styles.content}>
                                 {item.icon ? (
-                                    <div className={styles.icon}>
+                                    <div className={styles.icon} data-aos="zoom-in" data-aos-delay={i * 150}>
                                         {/*<Image src={item.icon} alt={item.title} width="60" height="60" />*/}
                                         <img src={item.icon} alt=""  width="60" height="60" />
                                     </div>

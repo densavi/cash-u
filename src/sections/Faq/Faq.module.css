@@ -33,11 +33,11 @@
     margin-bottom: 60px;
     font-size: 56px;
     text-align: center;
-    background: linear-gradient(180.02deg, #202020 0.02%, rgba(32, 32, 32, 0) 137.97%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    /*background: linear-gradient(180.02deg, #202020 0.02%, rgba(32, 32, 32, 0) 137.97%);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*background-clip: text;*/
+    /*color: transparent;*/
     @media (max-width: 768px) {
         font-size: 38px;
         margin-bottom: 40px;
@@ -45,11 +45,11 @@
 }
 
 .question {
-    background: linear-gradient(207.31deg, #202020 2%, rgba(32, 32, 32, 0) 160.88%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    /*background: linear-gradient(207.31deg, #202020 2%, rgba(32, 32, 32, 0) 160.88%);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*background-clip: text;*/
+    /*color: transparent;*/
 }
 
 .wrap {

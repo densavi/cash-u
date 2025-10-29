@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import {useState} from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-
-import dynamic from 'next/dynamic';
-const Select = dynamic(() => import('react-select'), { ssr: false });
+import Lang from '@/components/Lang/Lang';
 
 import styles from "./Header.module.css";
 
@@ -19,18 +17,14 @@ import MobileMenu from "@/components/MobileMenu/MobileMenu";
 export default function Header() {
 
     const menuItems = [
-        { title: "Про нас", href: "/about", icon: <AboutIcon /> },
-        { title: "Партнерам", href: "/partners", icon: <PartnersIcon /> },
-        { title: "Підтримка", href: "/support", icon: <SupportIcon /> },
+        {title: "Про нас", href: "/about", icon: <AboutIcon/>},
+        {title: "Партнерам", href: "/partners", icon: <PartnersIcon/>},
+        {title: "Підтримка", href: "/support", icon: <SupportIcon/>},
     ];
 
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState('user');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const langs = [
-        { value: 'ua', label: 'Укр' },
-        { value: 'en', label: 'Eng' },
-      ];
 
     return (
         <>
@@ -62,29 +56,55 @@ export default function Header() {
                             </Link>
 
 
-                            {user ? (
-                                <>
-                                    <span>Привет, {user}</span>
-                                </>
-                            ) : (
-                                <div className={styles.login}>
-                                    <Select 
-                                        options={langs} 
-                                        defaultValue={langs[0]} 
-                                        className={styles.langSelect} 
-                                        classNamePrefix="lang-select"
-                                        // menuIsOpen={true}
-                                    />
-                                    <Link className="btn" href="/">Увійти</Link>
-                                    <Link className="btn btn-purple" href="/">Зареєструватися</Link>
-                                </div>
-                            )}
+                            <div className={styles.login}>
+
+                                <Lang/>
+                                {user && (
+                                    <Link className="login-button" href="/">
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <g clipPath="url(#clip0_872_628)">
+                                                <path
+                                                    d="M8 10C10.2091 10 12 8.20914 12 6C12 3.79086 10.2091 2 8 2C5.79086 2 4 3.79086 4 6C4 8.20914 5.79086 10 8 10Z"
+                                                    stroke="currentColor"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                                <path
+                                                    d="M2 13.5C3.21063 11.4081 5.40937 10 8 10C10.5906 10 12.7894 11.4081 14 13.5"
+                                                    stroke="currentColor"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_872_628">
+                                                    <rect width="16" height="16" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                        Кабінет
+                                    </Link>
+                                )}
+                                {!user && (
+                                    <>
+                                        <Link className="btn" href="/">Увійти</Link>
+                                        <Link className="btn btn-purple" href="/">Зареєструватися</Link>
+                                    </>
+                                )}
+                            </div>
 
                             <button
                                 onClick={() => setIsMobileMenuOpen(true)}
                                 className={`btn btn-icon ${styles['menu-btn']}`}
                             >
-                                <MenuIcon />
+                                <MenuIcon/>
                                 Меню
                             </button>
 

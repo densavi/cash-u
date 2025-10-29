@@ -32,6 +32,7 @@
     background: url('/images/preloader-line-top.png') no-repeat center center;
     animation: rotateClockwise 60s linear infinite;
     z-index: 1;
+
     @media (max-width: 768px) {
         width: 734px;
         height: 734px;
@@ -49,6 +50,7 @@
     background: url('/images/preloader-line-middle.png') no-repeat center center;
     animation: rotateCounterClockwise 45s linear infinite;
     z-index: 2;
+
     @media (max-width: 768px) {
         width: 587px;
         height: 587px;
@@ -66,6 +68,7 @@
     background: url('/images/preloader-line-bottom.png') no-repeat center center;
     animation: rotateClockwise 75s linear infinite;
     z-index: 3;
+
     @media (max-width: 768px) {
         width: 440px;
         height: 440px;
@@ -97,24 +100,21 @@
 .preloaderText {
     font-size: 38px;
     font-weight: bold;
-    /* background: linear-gradient(91.74deg, #202020 1.47%, rgba(32, 32, 32, 0) 98.53%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent; */
     color: #202020;
     position: relative;
     z-index: 10;
+    overflow: hidden;
+
     @media (max-width: 768px) {
         font-size: 28px;
     }
 }
 
-/* Анимация появления текста */
+
 .textVisible {
     opacity: 1;
     transform: translateY(0);
-    animation: textFadeIn 0.6s ease-out;
+    animation: textFadeIn 0.6s ease-out, animate 150s linear infinite;
 }
 
 .textHidden {
@@ -128,13 +128,35 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     30% {
         opacity: 0.3;
         transform: translateY(10px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+@keyframes hue {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(-360deg);
     }
 }
 
@@ -145,13 +167,13 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+
     @media (max-width: 768px) {
         width: 80px;
         height: 80px;
     }
 }
 
-/* Анимация логотипа */
 .logoHidden {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.1) rotate(0deg);
@@ -160,7 +182,7 @@
 
 .logoVisible {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1) rotate(330deg);
+    transform: translate(-50%, -50%) scale(1) rotate(360deg);
     transition: all 1.2s ease;
 }
 
@@ -177,4 +199,21 @@
     background-clip: text;
     color: transparent;
     z-index: 10;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: #6335fc;
+    margin-left: 3px;
+    position: relative;
+    top: 2px;
+    animation: blink 0.6s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }

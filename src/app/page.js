@@ -63,7 +63,7 @@ export default function Home() {
             {
                 icon: '/images/for-clients-4.jpg',
                 title: 'Реальні курси в реальному часі',
-                description: 'Керуйте обмінами з доступом до ваших улюблених мереж'
+                description: 'Керуйте обмінами з вашего персонального кабінету'
             },
         ],
         buttonText: 'Зареєструватися',

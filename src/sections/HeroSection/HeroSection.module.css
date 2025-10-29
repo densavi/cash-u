@@ -12,10 +12,10 @@
     margin: 0 auto 16px;
     position: relative;
     z-index: 1;
-    background: linear-gradient(93.29deg, #202020 69.54%, rgba(32, 32, 32, 0) 103.39%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    /*background: linear-gradient(93.29deg, #202020 69.54%, rgba(32, 32, 32, 0) 103.39%);*/
+    /*-webkit-background-clip: text;*/
+    /*background-clip: text;*/
+    /*color: transparent;*/
     @media (max-width: 768px) {
         margin-bottom: 24px;
     }

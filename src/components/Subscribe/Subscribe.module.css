@@ -9,11 +9,11 @@
     font-weight: bold;
     max-width: 370px;
     margin-bottom: 20px;
-    background: linear-gradient(207.31deg, #202020 2%, rgba(32, 32, 32, 0) 160.88%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    /*background: linear-gradient(207.31deg, #202020 2%, rgba(32, 32, 32, 0) 160.88%);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*background-clip: text;*/
+    /*color: transparent;*/
 }
 
 .form {

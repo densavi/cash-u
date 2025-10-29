@@ -12,12 +12,30 @@ export default function Preloader() {
     const [shouldHide, setShouldHide] = useState(false);
     const { hidePreloader } = usePreloader();
 
+    const fullText = "Ще один обмінник, але...";
+    const [displayedText, setDisplayedText] = useState("");
+
     useEffect(() => {
-        // Блокируем скролл на body и html
+        if (!showText) return;
+
+        const speed = 90;
+        const interval = setInterval(() => {
+            setDisplayedText((prev) => {
+                if (prev.length >= fullText.length) {
+                    clearInterval(interval);
+                    return prev;
+                }
+                return fullText.slice(0, prev.length + 1);
+            });
+        }, speed);
+
+        return () => clearInterval(interval);
+    }, [showText, fullText]);
+
+    useEffect(() => {
         document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
 
-        // Анимация процентов от 0 до 100
         const progressInterval = setInterval(() => {
             setProgress(prev => {
                 if (prev >= 100) {
@@ -28,30 +46,27 @@ export default function Preloader() {
             });
         }, 60);
 
-        // Показываем логотип на 80% и скрываем текст
         const logoTimeout = setTimeout(() => {
             setShowText(false);
             setShowLogo(true);
         }, 2400);
 
-        // Начинаем скрывать прелоадер
         const hideTimeout = setTimeout(() => {
             setShouldHide(true);
-            hidePreloader(); // Уведомляем контекст о скрытии прелоадера
-            // Полностью удаляем через время анимации
+            hidePreloader(); 
             setTimeout(() => {
                 setIsVisible(false);
-                // Разблокируем скролл на body и html
+
                 document.body.style.overflow = '';
                 document.documentElement.style.overflow = '';
-            }, 800); // Время анимации исчезновения
+            }, 800); 
         }, 3500);
 
         return () => {
             clearInterval(progressInterval);
             clearTimeout(logoTimeout);
             clearTimeout(hideTimeout);
-            // Убеждаемся, что скролл разблокирован при размонтировании
+
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
         };
@@ -68,7 +83,8 @@ export default function Preloader() {
             <div className={styles.lineBottom}></div>
             
             <div className={`${styles.preloaderText} ${showText ? styles.textVisible : styles.textHidden}`}>
-                Ще один обмінник, але...
+                {displayedText}
+                {/*<span className={styles.cursor}></span>*/}
             </div>
             
             <img 

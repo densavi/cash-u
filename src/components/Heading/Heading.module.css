@@ -59,10 +59,10 @@
     box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.75) inset;
 }
 
-.headingGradient {
-    background: linear-gradient(90.04deg, #202020 0.1%, rgba(32, 32, 32, 0) 134.63%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
+/*.headingGradient {*/
+/*    background: linear-gradient(90.04deg, #202020 0.1%, rgba(32, 32, 32, 0) 134.63%);*/
+/*    -webkit-background-clip: text;*/
+/*    -webkit-text-fill-color: transparent;*/
+/*    background-clip: text;*/
+/*    color: transparent;*/
+/*}*/
