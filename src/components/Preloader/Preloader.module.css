@@ -193,11 +193,11 @@
     bottom: 80px;
     font-size: 38px;
     font-weight: bold;
-    background: linear-gradient(92.09deg, #202020 60.77%, rgba(32, 32, 32, 0) 103.68%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    /*background: linear-gradient(92.09deg, #202020 60.77%, rgba(32, 32, 32, 0) 103.68%);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*background-clip: text;*/
+    /*color: transparent;*/
     z-index: 10;
 }
 
